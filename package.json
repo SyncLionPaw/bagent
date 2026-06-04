@@ -1,0 +1,40 @@
+{
+  "name": "bagent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync-docs": "node scripts/sync-docs.mjs",
+    "sync-brand": "python3 scripts/sync-brand.py",
+    "dev": "npm run sync-brand && npm run sync-docs && vitepress dev docs",
+    "build": "npm run sync-brand && npm run sync-docs && vitepress build docs",
+    "preview": "npm run sync-docs && vitepress preview docs",
+    "ch01": "node lessons/01-deepseek/deepseek.mjs",
+    "ch02": "node lessons/02-terminal-chat/chat.mjs",
+    "ch03": "node lessons/03-chat-loop/chat.mjs",
+    "ch04": "node lessons/04-multi-round/chat.mjs",
+    "ch05": "node lessons/05-system-prompt/chat.mjs",
+    "ch05-shy": "node lessons/05-system-prompt/chat-shy.mjs",
+    "ch06": "node lessons/06-functions/chat.mjs",
+    "ch07": "node lessons/07-tool-calls/chat.mjs",
+    "ch08": "node lessons/08-qa-agent/chat.mjs",
+    "ch09": "node lessons/09-tavily/chat.mjs",
+    "ch10": "node lessons/10-web-ui/server.mjs",
+    "ch11": "node lessons/11-inference/peek.mjs",
+    "ch12": "bash lessons/12-local-inference/run.sh",
+    "ch12:setup:cpu": "bash lessons/12-local-inference/setup.sh cpu",
+    "ch12:setup:cuda": "bash lessons/12-local-inference/setup.sh cuda",
+    "ch14:setup": "bash lessons/14-fastapi-stream/setup.sh",
+    "ch14:server": "bash lessons/14-fastapi-stream/server.sh",
+    "ch14": "node lessons/14-fastapi-stream/client.mjs",
+    "ch15:hand": "node lessons/15-sse-parse/client-hand.mjs",
+    "ch15:parser": "node lessons/15-sse-parse/client-parser.mjs",
+    "ch16": "node lessons/16-streaming/chat.mjs",
+    "ch20": "node lessons/16-streaming/chat.mjs"
+  },
+  "dependencies": {
+    "eventsource-parser": "^3.0.6"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}

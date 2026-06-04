@@ -1,0 +1,19 @@
+// 约定：已 export DEEPSEEK_API_KEY；/quit 或 exit 结束
+import { createInterface } from "node:readline/promises";
+import { stdin, stdout } from "node:process";
+import { chat } from "./ask.mjs";
+
+const messages = [{ role: "system", content: "简洁回答用户。" }];
+const rl = createInterface({ input: stdin, output: stdout });
+
+while (true) {
+  const user = await rl.question("你: ");
+  if (user === "/quit" || user === "exit") break;
+
+  messages.push({ role: "user", content: user });
+  const content = await chat(messages);
+  messages.push({ role: "assistant", content });
+  console.log("AI:", content);
+}
+
+rl.close();
