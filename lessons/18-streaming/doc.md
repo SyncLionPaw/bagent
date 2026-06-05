@@ -1,9 +1,8 @@
-# 第 16 课 · 流式输出：先懂 SSE，再写打字机
+# 第 18 课 · 流式输出：先懂 SSE，再写打字机
 
 **约 35 分钟** · **回到 JavaScript 主线** · [第 15 课 SSE 解析](/chapters/15-sse-parse) 之后
 
-建议顺序：第 14 课（假数据 **发出** 流）→ 第 15 课（**手写 vs 库** 解析）→ **本课**（协议全文 + 真 API）。  
-阅读顺序：**先读完前半（协议与对比）→ 再跑文末 demo**。不要跳过 SSE 直接抄 `streamChat`。
+建议顺序：第 14 课（假数据 **发出** 流）→ 第 15 课（**手写 vs 库** 解析）→ **本课**（协议全文 + 浏览器打字机）。
 
 ---
 
@@ -215,36 +214,39 @@ sequenceDiagram
 
 ---
 
-## 7. 动手：终端打字机 demo（读完再做）
+## 7. 动手：浏览器直连 DeepSeek（读完再做）
 
-[`ask.mjs`](https://github.com/SyncLionPaw/bagent/blob/main/lessons/16-streaming/ask.mjs) 里 `streamChat` 为 Node **直连 DeepSeek**；解析逻辑与 [第 15 课 `sse-hand.mjs`](https://github.com/SyncLionPaw/bagent/blob/main/lessons/15-sse-parse/sse-hand.mjs) 相同（也可换成 `sse-parser.mjs`）。
+[`public/index.html`](https://github.com/SyncLionPaw/bagent/blob/main/lessons/18-streaming/public/index.html)：**一个 HTML**，`fetch` DeepSeek + `stream: true` + **内联** SSE 解析循环 + 聊天气泡。与第 19 课 UI 相同，但解析逻辑写在 `chat()` 里、不抽函数。
 
 ```bash
-export DEEPSEEK_API_KEY=sk-...
-npm run ch16
+npm run ch18
+# 或 open lessons/18-streaming/public/index.html
 ```
+
+页顶填入 **API Key**（仅存 `sessionStorage`，刷新本页仍可用；**勿把 Key 写进 HTML 提交仓库**）。
 
 对比建议：
 
 ```bash
 npm run ch06   # 单 JSON：整段一次出现
-npm run ch16   # SSE：逐段 data: → 打字机
-npm run ch14   # 假数据 SSE（第 14 课）
+npm run ch14   # 终端消费假 SSE（第 14 课）
 npm run ch15:hand   # 只练解析（第 15 课）
+# 本课：浏览器直开，真 API 流式
 ```
 
-核心循环（便于你对照 SSE 小节）：
+核心请求与读流：
 
 ```javascript
-for (const line of lines) {
-  if (!line.startsWith("data: ")) continue;
-  const payload = line.slice(6).trim();
-  if (payload === "[DONE]") continue;
-  const chunk = JSON.parse(payload);
-  const piece = chunk.choices?.[0]?.delta?.content;
-  if (piece) process.stdout.write(piece);
-}
+const res = await fetch("https://api.deepseek.com/chat/completions", {
+  method: "POST",
+  headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+  body: JSON.stringify({ model: "deepseek-v4-flash", messages, stream: true }),
+});
+const reader = res.body.getReader();
+// …按行 data: → delta.content → 更新气泡 textContent
 ```
+
+**注意**：Key 在浏览器里谁都能看见（开发者工具），正式产品应把 Key 放在 [第 20 课](/chapters/20-web-stream-server) 的 Node 网关后面。第 19 课把上面的循环抽成 `consumeSSE`。
 
 ---
 
@@ -258,7 +260,7 @@ for (const line of lines) {
 
 ## 后续
 
+- [第 22 课 · 正经 Agent 工程（第三阶段）](/chapters/22-agent-project)
 - [第 17 课 · SSE 为什么火过、现在又安静了](/chapters/17-sse-landscape)（纯阅读，行业背景）  
-- [第 10 课](/chapters/10-web-ui) 网页：把网关改成转发 SSE，气泡内 append `delta.content`。  
 
-[← 第 15 课 SSE 解析](/chapters/15-sse-parse) · [第 17 课 行业背景 →](/chapters/17-sse-landscape) · [MDN SSE](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events) · [JSON-RPC 2.0](https://www.jsonrpc.org/specification) · [DeepSeek stream](https://api-docs.deepseek.com/api/create-chat-completion)
+[← 第 15 课 SSE 解析](/chapters/15-sse-parse) · [第 19 课 网页流式 →](/chapters/19-web-stream) · [第 17 课 行业背景 →](/chapters/17-sse-landscape) · [MDN SSE](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events) · [JSON-RPC 2.0](https://www.jsonrpc.org/specification) · [DeepSeek stream](https://api-docs.deepseek.com/api/create-chat-completion)

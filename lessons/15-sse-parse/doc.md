@@ -10,7 +10,7 @@
 getReader() → TextDecoder → 字符串 buf → split("\n") → 找 data: 行 → JSON.parse
 ```
 
-这是**故意的**：每一行都能对着 [SSE 协议](/chapters/16-streaming) 看明白。  
+这是**故意的**：每一行都能对着 [SSE 协议](/chapters/18-streaming) 看明白。  
 生产里很多人**不会逐字抄这段**，而是用库或 SDK 把「粘包、半行、多行 data」处理好。
 
 本课做 **代码解读 + 两种实现对齐**，仍打 localhost:8014 假流。
@@ -123,7 +123,7 @@ es.onmessage = (e) => console.log(e.data);
 
 ---
 
-## 和第 16 课的分工
+## 和第 18 课的分工
 
 | 课 | 内容 |
 |----|------|
@@ -131,7 +131,7 @@ es.onmessage = (e) => console.log(e.data);
 | **15（本课）** | 客户端 **怎么解析** SSE（手写 vs 库） |
 | 16 | SSE **协议理论** + Node **直连 DeepSeek** 真流 |
 
-第 16 课 `ask.mjs` 会继续用手写或你可改成 `import { consumeSSE } from "../15-sse-parse/sse-parser.mjs"`——逻辑相同，只是 URL 换成真 API。
+第 18 课 `public/index.html` 会继续用手写解析——逻辑与 [第 15 课 `sse-hand.mjs`](https://github.com/SyncLionPaw/bagent/blob/main/lessons/15-sse-parse/sse-hand.mjs) 相同（真 API 数据源见 [第 20 课](/chapters/20-web-stream-server)）。
 
 ---
 
@@ -144,6 +144,6 @@ es.onmessage = (e) => console.log(e.data);
 
 ## 下一课
 
-[第 16 课 · SSE 协议与直连 DeepSeek](/chapters/16-streaming)
+[第 18 课 · SSE 协议与浏览器打字机](/chapters/18-streaming)
 
 [← 第 14 课](/chapters/14-fastapi-stream) · [eventsource-parser](https://github.com/rexxars/eventsource-parser)

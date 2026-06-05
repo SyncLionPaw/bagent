@@ -7,7 +7,7 @@
 你会用 **Node.js** 写 `.mjs`，从「调一次大模型 API」开始，逐章补上对话、工具调用、记忆与编排，一步步拼出 Agent。每章只加一个概念，配一段能跑的代码。
 
 这是**教程**，不是装好就能上生产的 npm 包。  
-**课程连载中**：第 1–10 课为**第一阶段**（写 Agent）；**第 11 课起为第二阶段**（API、本地推理、FastAPI 流式网关、SSE 等）。
+**课程连载中**：第 1–10 课为**第一阶段**；**第 11–21 课为第二阶段**（API、流式、运行时）；**第 22 课起为第三阶段**（造类似 Claude Code 的代码智能体，先定 messages 结构）。
 
 ## 技术栈约定
 
@@ -31,7 +31,7 @@ lessons/NN-xxx/
 
 `npm run build` 时会把课文同步到本站 `docs/chapters/`。
 
-## 目前已发布（第 1–17 课）
+## 目前已发布（第 1–21 课 + 连载）
 
 侧栏与下文列表同步更新；**未写完的课不会提前挂链接**。
 
@@ -54,6 +54,10 @@ lessons/NN-xxx/
 15. [第 13 课 · vLLM / SGLang 导读](/chapters/13-inference-engines)（扩展阅读）  
 16. [第 14 课 · FastAPI 假数据流式](/chapters/14-fastapi-stream)  
 17. [第 15 课 · SSE 解析（手写 vs 库）](/chapters/15-sse-parse)  
-18. [第 16 课 · SSE 协议与 Node 真流式](/chapters/16-streaming)  
-19. [第 17 课 · SSE 为何火过又安静了](/chapters/17-sse-landscape)（扩展阅读）  
-（第 18–19 课连载中）
+18. [第 18 课 · SSE 协议与浏览器打字机](/chapters/18-streaming)  
+19. [第 19 课 · 浏览器流式解析](/chapters/19-web-stream)  
+20. [第 20 课 · Node 网页流式网关](/chapters/20-web-stream-server)  
+21. [第 21 课 · 浏览器与 Node.js（扩展阅读）](/chapters/21-js-runtimes)  
+22. [第 22 课 · 代码智能体（第三阶段）](/chapters/22-agent-project)（连载中）  
+23. [第 23 课 · Agent Loop + Tool Calls](/chapters/23-agent-tools)（连载中）  
+24. [第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)（扩展阅读）

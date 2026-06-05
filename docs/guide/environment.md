@@ -33,7 +33,10 @@ npm run ch12             # 第 12 课：推理计时（权重在课内 models/�
 npm run ch14:setup && npm run ch14:server   # 第 14 课假数据 SSE（终端 1，无需 Key）
 npm run ch14                                # 第 14 课（终端 2）
 npm run ch15:hand && npm run ch15:parser    # 第 15 课：解析对照（需 ch14:server）
-npm run ch16                                # 第 16 课：SSE / 真 API
+npm run ch18                                # 第 18 课：浏览器流式（内联解析）
+npm run ch19                                # 第 19 课：浏览器流式（consumeSSE）
+npm run ch20                                # 第 20 课：Node 真 API 流式
+# 第 22 课起：第三阶段（连载中）
 npm run dev    # 文档 http://localhost:5173/bagent/
 ```
 

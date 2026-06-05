@@ -123,6 +123,6 @@
 ## 下一课
 
 第二部分连载继续（token、上下文、RAG 等可按目录更新）。  
-[第 14 课](/chapters/14-fastapi-stream) → [第 15 课 解析](/chapters/15-sse-parse) → [第 16 课 真流式](/chapters/16-streaming)。
+[第 14 课](/chapters/14-fastapi-stream) → [第 15 课 解析](/chapters/15-sse-parse) → [第 18 课 浏览器打字机](/chapters/18-streaming)。
 
 [← 第 12 课](/chapters/12-local-inference)

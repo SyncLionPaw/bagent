@@ -100,6 +100,6 @@ npm run ch10
 ## 下一阶段
 
 第一阶段到这里：**你会写 Agent 循环，会接工具，会在网页里用起来**。  
-[第 11 课](/chapters/11-inference) 起进入**第二阶段**。本课网页仍等非流式整包 JSON（「思考中…」久、无打字机）——[第 14–15 课](/chapters/14-fastapi-stream) 假数据流 + SSE 解析，[第 16 课](/chapters/16-streaming) 直连真 API。
+[第 11 课](/chapters/11-inference) 起进入**第二阶段**。本课网页仍等非流式整包 JSON（「思考中…」久、无打字机）——[第 14–15 课](/chapters/14-fastapi-stream) 假数据流 + SSE 解析，[第 18 课](/chapters/18-streaming) 浏览器打字机，[第 20 课](/chapters/20-web-stream-server) 真 API 网关。
 
 [← 第 9 课](/chapters/09-tavily) · [第 11 课 · 推理服务 →](/chapters/11-inference)

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>流式聊天 · 第 20 课</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main id="log" class="log" aria-live="polite"></main>
+    <form id="form" class="composer">
+      <input id="input" type="text" placeholder="输入消息…" autocomplete="off" />
+      <button type="submit" id="send">发送</button>
+    </form>
+    <script type="module">
+      const log = document.getElementById("log");
+      const form = document.getElementById("form");
+      const input = document.getElementById("input");
+      const sendBtn = document.getElementById("send");
+      let messages = [];
+      let busy = false;
+
+      function bubble(text, className) {
+        const el = document.createElement("div");
+        el.className = `msg ${className}`;
+        el.textContent = text;
+        log.appendChild(el);
+        log.scrollTop = log.scrollHeight;
+        return el;
+      }
+
+      async function consumeSSE(res, onUpdate) {
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buf = "", reply = "";
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+          const lines = buf.split("\n");
+          buf = lines.pop() ?? "";
+          for (const line of lines) {
+            if (!line.startsWith("data: ")) continue;
+            const data = line.slice(6).trim();
+            if (data === "[DONE]") continue;
+            const piece = JSON.parse(data).choices?.[0]?.delta?.content;
+            if (piece) { reply += piece; onUpdate(reply); }
+          }
+        }
+        return reply;
+      }
+
+      async function chat(userText) {
+        messages.push({ role: "user", content: userText });
+        bubble(userText, "user");
+        const assistant = bubble("", "assistant");
+        sendBtn.disabled = true;
+        busy = true;
+        try {
+          const res = await fetch("/api/chat/stream", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ messages }),
+          });
+          if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            assistant.remove();
+            bubble(err.error ?? "请求失败", "error");
+            messages.pop();
+            return;
+          }
+          const reply = await consumeSSE(res, (full) => {
+            assistant.textContent = full;
+            log.scrollTop = log.scrollHeight;
+          });
+          messages.push({ role: "assistant", content: reply });
+        } catch (err) {
+          assistant.remove();
+          bubble(String(err.message), "error");
+          messages.pop();
+        } finally {
+          sendBtn.disabled = false;
+          busy = false;
+          input.focus();
+        }
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text || busy) return;
+        input.value = "";
+        chat(text);
+      });
+      input.focus();
+    </script>
+  </body>
+</html>

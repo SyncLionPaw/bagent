@@ -1,6 +1,6 @@
 # 第 17 课 · SSE 的真实缺陷与行业现状（调研向）
 
-**约 20 分钟** · 纯阅读 · [第 16 课](/chapters/16-streaming) 之后
+**约 20 分钟** · 纯阅读 · [第 18 课](/chapters/18-streaming) 之后
 
 第 14–16 课教的是 **怎么发、怎么解析 SSE**。  
 这一课回答更尖锐的两个问题：
@@ -23,7 +23,7 @@
 | **浏览器 API** | `EventSource`（只能 GET）——**很多教程把它和协议混为一谈** |
 | **LLM 产品形态** | `stream: true` → 一连串 `data: {json}` → `[DONE]` |
 
-第 16 课用的是 **`fetch` + `getReader()` 解析 SSE 文本**，不是 `EventSource`。  
+第 18 课用的是 **`fetch` + `getReader()` 解析 SSE 文本**（浏览器里 `public/index.html`），不是 `EventSource`。  
 下面说的「还在用 SSE」，指 **协议层**；不是指你必须用 `EventSource`。
 
 ---
@@ -140,14 +140,14 @@ Kubernetes 里服务 A 调服务 B 的推理
 
 ## 6. Kimi Code 的 Wire：基于 JSON-RPC 2.0，但和 SSE 不是一层
 
-你听到的 **Kimi Code Wire**，和本课第 11 课讲的 **JSON-RPC 2.0 信封**、第 16 课的 **DeepSeek SSE**，是 **三条不同的线**。不要混成「Kimi 用 JSON-RPC 代替了 SSE」。
+你听到的 **Kimi Code Wire**，和本课第 11 课讲的 **JSON-RPC 2.0 信封**、第 18 课的 **DeepSeek SSE**，是 **三条不同的线**。不要混成「Kimi 用 JSON-RPC 代替了 SSE」。
 
 > **记一句**：Wire 是 **Agent 与 UI（宿主程序）之间** 的协议，**不是** Agent 与 **LLM 厂商（provider）** 之间的协议。  
 > 对模型仍走 HTTP 流式（常见 SSE）；Wire 上的 `ContentPart` 是 Agent **整理后推给 UI** 的事件，不是云端 API 的原始 chunk。
 
 ```text
 UI / IDE / SDK  ──Wire（JSON-RPC，stdio）──►  Agent 进程  ──HTTP+SSE──►  LLM Provider
-     ↑ 第 17 课本节                              ↑ 工具/MCP/多轮              ↑ 第 16 课
+     ↑ 第 17 课本节                              ↑ 工具/MCP/多轮              ↑ 第 18 课
 ```
 
 ### 6.1 三层别搞混
@@ -167,7 +167,7 @@ UI / IDE / SDK  ──Wire（JSON-RPC，stdio）──►  Agent 进程  ──H
 | 层 | 协议 | 干什么 |
 |----|------|--------|
 | **Wire**（`kimi --wire`） | **JSON-RPC 2.0** over **stdio** | **宿主程序 ↔ Agent 进程** 的结构化对话，不是浏览器调模型 |
-| **Chat Completions**（第 16 课） | **HTTP + SSE** | **Agent 内核 ↔ 云端模型** 推 token |
+| **Chat Completions**（第 18 课） | **HTTP + SSE** | **Agent 内核 ↔ 云端模型** 推 token |
 | **ACP**（`kimi acp`） | 也是 **JSON-RPC 2.0** over stdio，但走 [Agent Client Protocol](https://agentclientprotocol.com/) 约定 | **编辑器 ↔ Agent**（Zed 等），和 Wire 用途重叠、报文不同 |
 
 官方文档：[Wire 模式（中文）](https://moonshotai.github.io/kimi-cli/zh/customization/wire-mode.html) · [Wire Protocol（英文）](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/wire-protocol.html)
@@ -233,7 +233,7 @@ Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sd
 |--------|-------------------|
 | 第 14 课 网关 `StreamingResponse` | ✅ 仍是正确抽象（真换模型也只是换上游字节来源） |
 | 第 15 课 手写 vs `eventsource-parser` | ✅ 生产常用库；排错、读抓包仍要懂 `data:` |
-| 第 16 课 DeepSeek SSE | ✅ 与官方文档一致，不是偏门 |
+| 第 18 课 DeepSeek SSE | ✅ 与官方文档一致，不是偏门 |
 | 第 17 课（本课） | 分清 **SSE（对模型）** vs **JSON-RPC Wire（对 Agent 进程）** |
 
 **不必焦虑「明天全网不用 SSE」**；要焦虑的是：
@@ -280,4 +280,4 @@ Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sd
 - [Kimi Code — Wire 模式](https://moonshotai.github.io/kimi-cli/zh/customization/wire-mode.html)  
 - [@moonshot-ai/kimi-agent-sdk](https://www.npmjs.com/package/@moonshot-ai/kimi-agent-sdk)
 
-[← 第 16 课](/chapters/16-streaming)
+[← 第 18 课](/chapters/18-streaming)

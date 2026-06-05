@@ -28,8 +28,9 @@
     "ch14": "node lessons/14-fastapi-stream/client.mjs",
     "ch15:hand": "node lessons/15-sse-parse/client-hand.mjs",
     "ch15:parser": "node lessons/15-sse-parse/client-parser.mjs",
-    "ch16": "node lessons/16-streaming/chat.mjs",
-    "ch20": "node lessons/16-streaming/chat.mjs"
+    "ch18": "node scripts/open-html.mjs lessons/18-streaming/public/index.html",
+    "ch19": "node scripts/open-html.mjs lessons/19-web-stream/public/index.html",
+    "ch20": "node lessons/20-web-stream-server/server.mjs"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"

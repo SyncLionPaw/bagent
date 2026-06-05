@@ -31,7 +31,10 @@ npm run ch14:server  # 第 14 课：起服务（另开终端）
 npm run ch14         # 第 14 课：Node 消费 SSE 打字机
 npm run ch15:hand    # 第 15 课：手写 SSE 解析（需 ch14:server）
 npm run ch15:parser  # 第 15 课：eventsource-parser 解析
-npm run ch16         # 第 16 课：SSE 协议 + 直连 DeepSeek
+npm run ch18         # 第 18 课：浏览器 SSE（内联解析）
+npm run ch19         # 第 19 课：浏览器 SSE（consumeSSE）
+npm run ch20         # 第 20 课：Node 藏 Key → localhost:3020
+# 第 22 课起：第三阶段代码智能体（连载中，见 lessons/22-agent-project/）
 ```
 
 课文源文件：`lessons/` · 构建后站点：`docs/`

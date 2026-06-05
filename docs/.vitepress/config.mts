@@ -41,7 +41,8 @@ export default defineConfig({
         ],
       },
       {
-        text: "章节",
+        text: "第一阶段 · 写 Agent（1–10）",
+        collapsed: false,
         items: [
           { text: "第 0 章 — 前言", link: "/chapters/00-preface" },
           { text: "第 1 课 — DeepSeek API", link: "/chapters/01-deepseek" },
@@ -54,12 +55,41 @@ export default defineConfig({
           { text: "第 8 课 — 第一个 Agent 🎉", link: "/chapters/08-qa-agent" },
           { text: "第 9 课 — Tavily 搜索", link: "/chapters/09-tavily" },
           { text: "第 10 课 — 网页 Agent 🎉", link: "/chapters/10-web-ui" },
+        ],
+      },
+      {
+        text: "第二阶段 · API 与推理（11–13）",
+        collapsed: false,
+        items: [
           { text: "第 11 课 — API 响应字段", link: "/chapters/11-inference" },
           { text: "第 12 课 — 本地推理体验", link: "/chapters/12-local-inference" },
           { text: "第 13 课 — 推理框架导读", link: "/chapters/13-inference-engines" },
+        ],
+      },
+      {
+        text: "第二阶段 · 流式（14–21）",
+        collapsed: false,
+        items: [
           { text: "第 14 课 — FastAPI 假数据流式", link: "/chapters/14-fastapi-stream" },
           { text: "第 15 课 — SSE 解析对照", link: "/chapters/15-sse-parse" },
-          { text: "第 16 课 — SSE 与真 API", link: "/chapters/16-streaming" },
+          { text: "第 18 课 — 浏览器 SSE 打字机", link: "/chapters/18-streaming" },
+          { text: "第 19 课 — 浏览器流式气泡", link: "/chapters/19-web-stream" },
+          { text: "第 20 课 — Node 藏 Key 网关", link: "/chapters/20-web-stream-server" },
+          { text: "第 21 课 — 浏览器与 Node", link: "/chapters/21-js-runtimes" },
+        ],
+      },
+      {
+        text: "第三阶段 · 代码智能体（连载）",
+        collapsed: false,
+        items: [
+          { text: "第 22 课 — 代码智能体", link: "/chapters/22-agent-project" },
+          { text: "第 23 课 — Agent Loop", link: "/chapters/23-agent-tools" },
+        ],
+      },
+      {
+        text: "扩展阅读",
+        collapsed: true,
+        items: [
           { text: "第 17 课 — SSE 行业背景", link: "/chapters/17-sse-landscape" },
         ],
       },

@@ -12,7 +12,7 @@
 2. **客户端（Node `client.mjs`）**：`fetch` + `getReader()` **边收边解析** `data:` 行、边打印  
 
 **不需要 `DEEPSEEK_API_KEY`，不需要联网调模型。**  
-SSE 的形状故意做成和第 16 课 DeepSeek 流式相近（`choices[0].delta.content`），方便以后无缝换成真 API。
+SSE 的形状故意做成和第 18 课 DeepSeek 流式相近（`choices[0].delta.content`），方便以后无缝换成真 API。
 
 ```text
 client.mjs  →  POST /chat/stream  →  FastAPI 逐字 yield 假 JSON chunk
@@ -109,7 +109,7 @@ return {"content": full_text}
 [`client.mjs`](https://github.com/SyncLionPaw/bagent/blob/main/lessons/14-fastapi-stream/client.mjs) 里用 **手写** `getReader` + `buf` + `split("\n")` + `data:` 解析（为看清协议）。
 
 **插播**：[第 15 课](/chapters/15-sse-parse) 对照 **手写 vs `eventsource-parser` 库**，同一假流两种读法。  
-第 16 课再接真 DeepSeek API。
+第 20 课再接真 DeepSeek API。
 
 ---
 
@@ -117,7 +117,7 @@ return {"content": full_text}
 
 第 10 课网页 `/api/chat` 若一次性 `json()` 整包 Agent 结果，浏览器只能「思考中…」然后整段出现。  
 本课说明：要在 **FastAPI / Node 网关** 层用 `StreamingResponse`（或等价）**持续写出**；前端 / `client.mjs` 用 **流式读**。  
-接上真模型是第 16 课及以后改数据来源即可。
+接上真模型是第 20 课及以后改数据来源即可。
 
 ---
 
@@ -130,6 +130,6 @@ return {"content": full_text}
 
 ## 下一课
 
-[第 15 课 · SSE 解析对照](/chapters/15-sse-parse) → [第 16 课 · 协议与真 API](/chapters/16-streaming)。
+[第 15 课 · SSE 解析对照](/chapters/15-sse-parse) → [第 18 课 · 协议与打字机](/chapters/18-streaming)。
 
 [← 第 13 课](/chapters/13-inference-engines) · [FastAPI 文档](https://fastapi.tiangolo.com/)

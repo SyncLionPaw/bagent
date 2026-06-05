@@ -182,7 +182,7 @@ messages.push({
 });
 ```
 
-流式时思维链走 `delta.reasoning_content`，最终答案仍走 `delta.content`（[第 16 课](/chapters/16-streaming)）。
+流式时思维链走 `delta.reasoning_content`，最终答案仍走 `delta.content`（[第 18 课](/chapters/18-streaming)）。
 
 ---
 
@@ -241,7 +241,7 @@ if (message) return message;
 | `messages.push({ role: "assistant", content: message.content, tool_calls })` | 把整段 `message` 塞回历史 |
 | 第 10 课 `data.content` | 你自己的 server 只转了 `content`；背后仍是上面的结构 |
 
-**流式（[第 16 课](/chapters/16-streaming)）**：同一次生成，只是把 `message.content` 拆成很多个 `delta.content` 事件；`usage` 往往在**最后一包**才完整出现。
+**流式（[第 18 课](/chapters/18-streaming)）**：同一次生成，只是把 `message.content` 拆成很多个 `delta.content` 事件；`usage` 往往在**最后一包**才完整出现。
 
 ---
 
