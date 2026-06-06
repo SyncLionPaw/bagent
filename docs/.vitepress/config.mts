@@ -93,6 +93,8 @@ export default defineConfig({
           { text: "第 30 课 — VS Code 插件", link: "/chapters/30-vscode-extension" },
           { text: "第 31 课 — spawn 子进程", link: "/chapters/31-vscode-spawn" },
           { text: "第 32 课 — 右侧辅助栏", link: "/chapters/32-vscode-auxiliarybar" },
+          { text: "第 33 课 — 打包 VSIX", link: "/chapters/33-vscode-vsix" },
+          { text: "第 34 课 — Thinking 事件", link: "/chapters/34-agent-thinking" },
         ],
       },
       {

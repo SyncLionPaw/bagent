@@ -55,7 +55,7 @@ export type AgentEvent =
 | `ToolResult` | `runTool` 返回之后 |
 | `TurnEnd` | 本轮最终文字已写入 history |
 
-`ThinkingStart` 等可在此表上扩展；本课 API 关了 thinking，先不产出。
+`ThinkingStart` 等在第 [34 课](/chapters/34-agent-thinking) 实现；本课 API 关了 thinking，先不产出。
 
 ---
 

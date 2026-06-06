@@ -4,6 +4,7 @@ docs/.vitepress/cache/
 docs/.vitepress/dist/
 docs/chapters/*.md
 docs/public/lessons/
+*.vsix
 
 .env
 .env.*

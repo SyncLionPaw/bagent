@@ -158,4 +158,4 @@ bagent32.open
 
 ---
 
-[← 第 31 课](/chapters/31-vscode-spawn) · [第 30 课](/chapters/30-vscode-extension)
+[← 第 31 课](/chapters/31-vscode-spawn) · [第 33 课 · 打包 VSIX](/chapters/33-vscode-vsix) · [第 30 课](/chapters/30-vscode-extension)

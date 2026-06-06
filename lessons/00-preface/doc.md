@@ -69,4 +69,6 @@ lessons/NN-xxx/
 30. [第 30 课 · VS Code 插件](/chapters/30-vscode-extension)
 31. [第 31 课 · spawn Agent 子进程](/chapters/31-vscode-spawn)
 32. [第 32 课 · 右侧辅助栏](/chapters/32-vscode-auxiliarybar)
-33. [第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)（扩展阅读）
+33. [第 33 课 · 打包 VSIX](/chapters/33-vscode-vsix)
+34. [第 34 课 · Thinking 事件](/chapters/34-agent-thinking)
+35. [第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)（扩展阅读）

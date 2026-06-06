@@ -41,7 +41,9 @@
     "ch28:client": "tsx lessons/28-agent-network/client.ts",
     "ch30:compile": "npm install --prefix lessons/30-vscode-extension && npm run compile --prefix lessons/30-vscode-extension",
     "ch31:compile": "npm install --prefix lessons/31-vscode-spawn && npm run compile --prefix lessons/31-vscode-spawn",
-    "ch32:compile": "npm run compile --prefix lessons/32-vscode-auxiliarybar"
+    "ch32:compile": "npm run compile --prefix lessons/32-vscode-auxiliarybar",
+    "ch33:package": "node scripts/package-lesson32.mjs",
+    "ch34": "tsx lessons/34-agent-thinking/chat.ts"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"

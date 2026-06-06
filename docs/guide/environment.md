@@ -48,6 +48,8 @@ npm run ch28:client
 npm run ch30:compile   # 第 30 课：编译 VS Code 插件后 F5 调试
 npm run ch31:compile   # 第 31 课：spawn 子进程版插件
 npm run ch32:compile   # 第 32 课：auxiliarybar 右侧栏（需先 ch31:compile）
+npm run ch33:package   # 第 33 课：把第 32 课打成 .vsix
+npm run ch34           # 第 34 课：Thinking 事件（终端）
 npm run dev    # 文档 http://localhost:5173/bagent/
 ```
 
