@@ -6,4 +6,4 @@
 - 代码在 `lessons/` 各章目录，不要只读文档  
 - 约定：Node 20+、当章要求的环境变量（第 1 课 `DEEPSEEK_API_KEY`，第 9 课另要 `TAVILY_API_KEY`）
 
-[环境](./environment) → … → [第 20 课 网关](../chapters/20-web-stream-server) · 第 22 课起第三阶段（连载）
+[环境](./environment) → … → [第 22 课 TS](../chapters/22-typescript) → [第 23 课 messages](../chapters/23-agent-messages) → [第 24 课 Agent Loop](../chapters/24-agent-loop) → [第 25 课 流式](../chapters/25-agent-stream) · [第 27 课 架构](../chapters/27-agent-architecture) · [第 28 课 双进程](../chapters/28-agent-network) · [第 29 课 为何拆开](../chapters/29-agent-split)

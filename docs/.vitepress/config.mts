@@ -79,11 +79,20 @@ export default defineConfig({
         ],
       },
       {
-        text: "第三阶段 · 代码智能体（连载）",
+        text: "第三阶段 · 代码智能体",
         collapsed: false,
         items: [
-          { text: "第 22 课 — 代码智能体", link: "/chapters/22-agent-project" },
-          { text: "第 23 课 — Agent Loop", link: "/chapters/23-agent-tools" },
+          { text: "第 22 课 — TypeScript 入门", link: "/chapters/22-typescript" },
+          { text: "第 23 课 — messages 设计", link: "/chapters/23-agent-messages" },
+          { text: "第 24 课 — Agent Loop", link: "/chapters/24-agent-loop" },
+          { text: "第 25 课 — 流式 Agent", link: "/chapters/25-agent-stream" },
+          { text: "第 26 课 — 流式事件", link: "/chapters/26-agent-events" },
+          { text: "第 27 课 — Agent 架构常识", link: "/chapters/27-agent-architecture" },
+          { text: "第 28 课 — 双进程事件", link: "/chapters/28-agent-network" },
+          { text: "第 29 课 — 拆开的好处", link: "/chapters/29-agent-split" },
+          { text: "第 30 课 — VS Code 插件", link: "/chapters/30-vscode-extension" },
+          { text: "第 31 课 — spawn 子进程", link: "/chapters/31-vscode-spawn" },
+          { text: "第 32 课 — 右侧辅助栏", link: "/chapters/32-vscode-auxiliarybar" },
         ],
       },
       {

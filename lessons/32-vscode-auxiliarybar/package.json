@@ -1,0 +1,63 @@
+{
+  "name": "bagent-lesson32",
+  "displayName": "bagent 第 32 课",
+  "description": "Webview 挂 secondarySidebar，与 Chat 同侧",
+  "version": "0.0.2",
+  "private": true,
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent32.open",
+        "title": "bagent: 打开右侧 Agent 面板"
+      }
+    ],
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "bagent32",
+          "title": "bagent",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "bagent32": [
+        {
+          "type": "webview",
+          "id": "bagent32.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent 第 32 课",
+      "properties": {
+        "bagent32.apiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/deepseek-api-key",
+          "description": "DeepSeek API Key 文件路径"
+        },
+        "bagent32.tavilyApiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/tavily-api-key",
+          "description": "Tavily API Key（web_search）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "precompile": "test -d node_modules || ln -sf ../31-vscode-spawn/node_modules node_modules; test -d agent || ln -sf ../31-vscode-spawn/agent agent; test -f src/apiKey.ts || (ln -sf ../../31-vscode-spawn/src/apiKey.ts src/apiKey.ts && ln -sf ../../31-vscode-spawn/src/events.ts src/events.ts && ln -sf ../../31-vscode-spawn/src/spawn.ts src/spawn.ts)",
+    "compile": "tsc -p . && tsc -p agent/tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}

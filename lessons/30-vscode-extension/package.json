@@ -1,0 +1,56 @@
+{
+  "name": "bagent-lesson30",
+  "displayName": "bagent 第 30 课",
+  "description": "侧边栏订阅第 28 课 Agent 服务",
+  "version": "0.0.2",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent.focus",
+        "title": "bagent: 打开侧边栏"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "bagent",
+          "title": "bagent",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "bagent": [
+        {
+          "type": "webview",
+          "id": "bagent.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent",
+      "properties": {
+        "bagent.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:3028",
+          "description": "第 28 课 server 地址"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.8.3"
+  }
+}

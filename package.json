@@ -30,12 +30,26 @@
     "ch15:parser": "node lessons/15-sse-parse/client-parser.mjs",
     "ch18": "node scripts/open-html.mjs lessons/18-streaming/public/index.html",
     "ch19": "node scripts/open-html.mjs lessons/19-web-stream/public/index.html",
-    "ch20": "node lessons/20-web-stream-server/server.mjs"
+    "ch20": "node lessons/20-web-stream-server/server.mjs",
+    "ch22": "tsx lessons/22-typescript/hello.ts",
+    "ch22:types": "tsx lessons/22-typescript/types.ts",
+    "ch23": "tsx lessons/23-agent-messages/messages.ts",
+    "ch24": "tsx lessons/24-agent-loop/chat.ts",
+    "ch25": "tsx lessons/25-agent-stream/chat.ts",
+    "ch26": "tsx lessons/26-agent-events/chat.ts",
+    "ch28:server": "tsx lessons/28-agent-network/server.ts",
+    "ch28:client": "tsx lessons/28-agent-network/client.ts",
+    "ch30:compile": "npm install --prefix lessons/30-vscode-extension && npm run compile --prefix lessons/30-vscode-extension",
+    "ch31:compile": "npm install --prefix lessons/31-vscode-spawn && npm run compile --prefix lessons/31-vscode-spawn",
+    "ch32:compile": "npm run compile --prefix lessons/32-vscode-auxiliarybar"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"
   },
   "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
     "vitepress": "^1.6.3"
   }
 }

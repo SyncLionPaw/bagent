@@ -30,6 +30,6 @@ features:
 
 ## 这是什么
 
-**bagent** 是一门**连载中的中文课程**：用 **JavaScript** 带你**一步一步**做出大模型 Agent。第 22 课起进入第三阶段（代码智能体，编写中）。
+**bagent** 是一门**连载中的中文课程**：用 **JavaScript** 带你**一步一步**做出大模型 Agent。**第 22 课**插播 TypeScript，**第 23 课起**造代码智能体。
 
-[第 1 课 →](/chapters/01-deepseek) · [第 0 章 →](/chapters/00-preface) · [怎么学 →](/guide/how-to-learn)
+[第 1 课 →](/chapters/01-deepseek) · [第 22 课 TypeScript →](/chapters/22-typescript) · [第 0 章 →](/chapters/00-preface)

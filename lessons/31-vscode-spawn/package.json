@@ -1,0 +1,62 @@
+{
+  "name": "bagent-lesson31",
+  "displayName": "bagent 第 31 课",
+  "description": "插件 spawn Agent 子进程，stdio 传 AgentEvent",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent31.focus",
+        "title": "bagent: 打开侧边栏（spawn）"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "bagent31",
+          "title": "bagent",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "bagent31": [
+        {
+          "type": "webview",
+          "id": "bagent31.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent 第 31 课",
+      "properties": {
+        "bagent31.apiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/deepseek-api-key",
+          "description": "DeepSeek API Key 文件路径（第一行 sk-...）。仍可用环境变量 DEEPSEEK_API_KEY 覆盖。"
+        },
+        "bagent31.tavilyApiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/tavily-api-key",
+          "description": "Tavily API Key（web_search）。第一行 tvly-...；仍可用 TAVILY_API_KEY 环境变量覆盖。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p . && tsc -p agent/tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}

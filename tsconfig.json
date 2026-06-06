@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "lessons/22-typescript/**/*.ts",
+    "lessons/23-agent-messages/**/*.ts",
+    "lessons/24-agent-loop/**/*.ts",
+    "lessons/25-agent-stream/**/*.ts",
+    "lessons/26-agent-events/**/*.ts",
+    "lessons/28-agent-network/**/*.ts"
+  ]
+}

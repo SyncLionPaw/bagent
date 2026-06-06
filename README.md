@@ -34,7 +34,15 @@ npm run ch15:parser  # 第 15 课：eventsource-parser 解析
 npm run ch18         # 第 18 课：浏览器 SSE（内联解析）
 npm run ch19         # 第 19 课：浏览器 SSE（consumeSSE）
 npm run ch20         # 第 20 课：Node 藏 Key → localhost:3020
-# 第 22 课起：第三阶段代码智能体（连载中，见 lessons/22-agent-project/）
+npm run ch22
+npm run ch22:types
+npm run ch23
+npm run ch24
+npm run ch25
+npm run ch26
+npm run ch28:server
+npm run ch28:client
+npm run ch30:compile   # 第 30 课 VS Code 插件，见 lessons/30-vscode-extension/doc.md
 ```
 
 课文源文件：`lessons/` · 构建后站点：`docs/`

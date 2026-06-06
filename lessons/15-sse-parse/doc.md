@@ -48,7 +48,7 @@ buf = lines.pop() ?? "";  // 最后一行可能不完整，留到下次
 | **[`eventsource-parser`](https://github.com/rexxars/eventsource-parser)** | Node / 浏览器 fetch 流 | Vercel AI SDK 等底层常用；`parser.feed(chunk)` |
 | **`EventSource`（浏览器内置）** | 仅 **GET** SSE | 不能带 POST body，**Chat Completions 一般不用它直连** |
 | **OpenAI / 官方 SDK** | 应用层 | `for await (const chunk of stream)`，内部已解析 SSE |
-| **Kimi Wire** | Agent↔宿主 IPC | JSON-RPC `event` 通知（`ContentPart` 等），不是 HTTP SSE |
+| **Agent IPC（JSON-RPC）** | Agent↔宿主进程 | `event` 通知推进度，不是 HTTP SSE；见 [第 17 课](/chapters/17-sse-landscape) |
 | **`@microsoft/fetch-event-source`** | 浏览器 POST SSE | 补 EventSource 不能 POST 的缺口 |
 
 大模型 **POST + stream** 场景：Node 里要么是 **手写**，要么是 **`eventsource-parser` 一类**；浏览器里常见 fetch + parser 或专用库。

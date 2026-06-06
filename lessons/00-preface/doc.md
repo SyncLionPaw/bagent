@@ -7,11 +7,11 @@
 你会用 **Node.js** 写 `.mjs`，从「调一次大模型 API」开始，逐章补上对话、工具调用、记忆与编排，一步步拼出 Agent。每章只加一个概念，配一段能跑的代码。
 
 这是**教程**，不是装好就能上生产的 npm 包。  
-**课程连载中**：第 1–10 课为**第一阶段**；**第 11–21 课为第二阶段**（API、流式、运行时）；**第 22 课起为第三阶段**（造类似 Claude Code 的代码智能体，先定 messages 结构）。
+**课程连载中**：第 1–10 课为**第一阶段**；**第 11–21 课为第二阶段**；**第 22 课起为第三阶段**（[TypeScript](/chapters/22-typescript) → [messages](/chapters/23-agent-messages) → 代码智能体）。
 
 ## 技术栈约定
 
-- **语言**：JavaScript（ESM，Node 20+）
+- **语言**：第 1–21 课 JavaScript（`.mjs`）；**第 22 课起** TypeScript 入门后，第三阶段 Agent 用 `.ts`（`tsx` 运行）
 - **HTTP**：原生 `fetch`
 - **模型**：先接 DeepSeek 等兼容 API；本地模型、框架封装放在后面章节
 
@@ -58,6 +58,15 @@ lessons/NN-xxx/
 19. [第 19 课 · 浏览器流式解析](/chapters/19-web-stream)  
 20. [第 20 课 · Node 网页流式网关](/chapters/20-web-stream-server)  
 21. [第 21 课 · 浏览器与 Node.js（扩展阅读）](/chapters/21-js-runtimes)  
-22. [第 22 课 · 代码智能体（第三阶段）](/chapters/22-agent-project)（连载中）  
-23. [第 23 课 · Agent Loop + Tool Calls](/chapters/23-agent-tools)（连载中）  
-24. [第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)（扩展阅读）
+22. [第 22 课 · TypeScript 入门](/chapters/22-typescript)（第三阶段开篇）  
+23. [第 23 课 · messages 设计](/chapters/23-agent-messages)  
+24. [第 24 课 · Agent Loop](/chapters/24-agent-loop)  
+25. [第 25 课 · 流式 Agent](/chapters/25-agent-stream)  
+26. [第 26 课 · 流式事件](/chapters/26-agent-events)  
+27. [第 27 课 · Agent 架构常识](/chapters/27-agent-architecture)（扩展阅读）  
+28. [第 28 课 · 双进程事件](/chapters/28-agent-network)  
+29. [第 29 课 · 拆开的好处](/chapters/29-agent-split)（扩展阅读）  
+30. [第 30 课 · VS Code 插件](/chapters/30-vscode-extension)
+31. [第 31 课 · spawn Agent 子进程](/chapters/31-vscode-spawn)
+32. [第 32 课 · 右侧辅助栏](/chapters/32-vscode-auxiliarybar)
+33. [第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)（扩展阅读）

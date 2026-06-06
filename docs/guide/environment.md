@@ -6,7 +6,8 @@
 |------|------|
 | Node.js | **20+**（内置 `fetch`） |
 | npm | `npm install` 装文档站依赖 |
-| 第 1 课 | 有效的 `DEEPSEEK_API_KEY` |
+| 第 1 课 | 有效的 `DEEPSEEK_API_KEY`（`export` 或见下） |
+| 第 31 课插件 | DeepSeek：**`~/.bagent/deepseek-api-key`**；Tavily（搜索）：**`~/.bagent/tavily-api-key`**；均可用 `export` 覆盖 |
 | 第 9 课 | `TAVILY_API_KEY`（[Tavily](https://docs.tavily.com/welcome) 注册） |
 | 第 12 课 | Python **3.10+**；推荐 [uv](https://docs.astral.sh/uv/)；`npm run ch12:setup:cpu` 或 `ch12:setup:cuda` |
 | 第 14 课 | Python **3.10+**（假数据 SSE，无需 API Key）；`npm run ch14:setup`，双终端 `ch14:server` / `ch14` |
@@ -36,7 +37,17 @@ npm run ch15:hand && npm run ch15:parser    # 第 15 课：解析对照（需 ch
 npm run ch18                                # 第 18 课：浏览器流式（内联解析）
 npm run ch19                                # 第 19 课：浏览器流式（consumeSSE）
 npm run ch20                                # 第 20 课：Node 真 API 流式
-# 第 22 课起：第三阶段（连载中）
+npm run ch22
+npm run ch22:types
+npm run ch23
+npm run ch24
+npm run ch25
+npm run ch26
+npm run ch28:server
+npm run ch28:client
+npm run ch30:compile   # 第 30 课：编译 VS Code 插件后 F5 调试
+npm run ch31:compile   # 第 31 课：spawn 子进程版插件
+npm run ch32:compile   # 第 32 课：auxiliarybar 右侧栏（需先 ch31:compile）
 npm run dev    # 文档 http://localhost:5173/bagent/
 ```
 

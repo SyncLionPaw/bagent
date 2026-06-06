@@ -138,54 +138,46 @@ Kubernetes 里服务 A 调服务 B 的推理
 
 ---
 
-## 6. Kimi Code 的 Wire：基于 JSON-RPC 2.0，但和 SSE 不是一层
+## 6. Agent 与宿主的 IPC：JSON-RPC 2.0，但和 SSE 不是一层
 
-你听到的 **Kimi Code Wire**，和本课第 11 课讲的 **JSON-RPC 2.0 信封**、第 18 课的 **DeepSeek SSE**，是 **三条不同的线**。不要混成「Kimi 用 JSON-RPC 代替了 SSE」。
+一些 **CLI Agent**（终端里的代码助手）除了调模型，还要和 **IDE、自研 UI、自动化脚本** 对话。那条线常用 **JSON-RPC 2.0 over stdio**（一行一条 JSON），和第 11 课的 JSON-RPC 信封、第 18 课的 **DeepSeek SSE** 是 **不同的层**。不要混成「某个产品用 JSON-RPC 代替了 SSE」。
 
-> **记一句**：Wire 是 **Agent 与 UI（宿主程序）之间** 的协议，**不是** Agent 与 **LLM 厂商（provider）** 之间的协议。  
-> 对模型仍走 HTTP 流式（常见 SSE）；Wire 上的 `ContentPart` 是 Agent **整理后推给 UI** 的事件，不是云端 API 的原始 chunk。
+> **记一句**：Agent IPC 是 **Agent 与 UI（宿主程序）之间** 的协议，**不是** Agent 与 **LLM 厂商** 之间的协议。  
+> 对模型仍走 HTTP 流式（常见 SSE）；IPC 上的「正文片段」类事件是 Agent **整理后推给 UI** 的，不是云端 API 的原始 chunk。
 
 ```text
-UI / IDE / SDK  ──Wire（JSON-RPC，stdio）──►  Agent 进程  ──HTTP+SSE──►  LLM Provider
-     ↑ 第 17 课本节                              ↑ 工具/MCP/多轮              ↑ 第 18 课
+UI / IDE / SDK  ──JSON-RPC（stdio）──►  Agent 进程  ──HTTP+SSE──►  LLM Provider
+     ↑ 第 17 课本节                         ↑ 工具/MCP/多轮           ↑ 第 18 课
 ```
 
 ### 6.1 三层别搞混
 
 ```text
 ┌─────────────────────────────────────────────────────────┐
-│  你的 IDE / 自研 UI / kimi-agent-sdk                     │
-│       ↕  JSON-RPC 2.0，stdin/stdout，一行一条 JSON（Wire） │
+│  你的 IDE / 自研 UI / 测试脚本                            │
+│       ↕  JSON-RPC 2.0，stdin/stdout，一行一条 JSON       │
 ├─────────────────────────────────────────────────────────┤
-│  Kimi Code CLI 进程（Agent 内核：工具、MCP、多轮编排）      │
+│  Agent 进程（工具、MCP、多轮编排）                        │
 │       ↕  内部仍要调大模型 HTTP API（常见仍是 stream + SSE） │
 ├─────────────────────────────────────────────────────────┤
-│  Moonshot / 其他厂商 云端推理                              │
+│  DeepSeek / 其他厂商 云端推理                             │
 └─────────────────────────────────────────────────────────┘
 ```
 
 | 层 | 协议 | 干什么 |
 |----|------|--------|
-| **Wire**（`kimi --wire`） | **JSON-RPC 2.0** over **stdio** | **宿主程序 ↔ Agent 进程** 的结构化对话，不是浏览器调模型 |
+| **Agent IPC** | **JSON-RPC 2.0** over **stdio** | **宿主程序 ↔ Agent 进程**，不是浏览器直连模型 |
 | **Chat Completions**（第 18 课） | **HTTP + SSE** | **Agent 内核 ↔ 云端模型** 推 token |
-| **ACP**（`kimi acp`） | 也是 **JSON-RPC 2.0** over stdio，但走 [Agent Client Protocol](https://agentclientprotocol.com/) 约定 | **编辑器 ↔ Agent**（Zed 等），和 Wire 用途重叠、报文不同 |
+| **ACP** | 也是 **JSON-RPC 2.0** over stdio，走 [Agent Client Protocol](https://agentclientprotocol.com/) | **编辑器 ↔ Agent**（如 Zed），报文与自建 IPC 不同 |
 
-官方文档：[Wire 模式（中文）](https://moonshotai.github.io/kimi-cli/zh/customization/wire-mode.html) · [Wire Protocol（英文）](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/wire-protocol.html)
+### 6.2 IPC 在干什么（和 SSE 的对比）
 
-### 6.2 Wire 在干什么（和 SSE 的对比）
-
-启动方式：
-
-```bash
-kimi --wire
-```
-
-之后 **一行一个 JSON**（JSONL），走 **stdin/stdout**，符合 JSON-RPC 2.0：
+Agent 以「管道模式」启动时，**一行一个 JSON**（JSONL），走 **stdin/stdout**，符合 JSON-RPC 2.0：
 
 - **Request / Response**：有 `id`，例如 `initialize`、`prompt`——客户端发指令，Agent 回 `result`。  
 - **Notification**：无 `id`，例如 **`method: "event"`**——Agent **主动推**进度，客户端不用回包。
 
-「流式打字机」在 Wire 里 **不是** `data: {...}\n\n` 的 SSE，而是 **一连串 JSON-RPC 通知**：
+「流式打字机」在 IPC 里 **不是** `data: {...}\n\n` 的 SSE，而是 **一连串 JSON-RPC 通知**：
 
 ```json
 {"jsonrpc":"2.0","method":"event","params":{"type":"ContentPart","payload":{"text":"你"}}}
@@ -193,37 +185,37 @@ kimi --wire
 {"jsonrpc":"2.0","method":"event","params":{"type":"ToolCallPart","payload":{"arguments_part":"..."}}}
 ```
 
-常见 `event` 类型包括 `TurnBegin`、`ContentPart`（正文片段）、`ToolCallPart`（工具参数流式片段）、`ToolResult`、`StatusUpdate`（token 用量）等——见 [kimi-agent-sdk 事件表](https://www.npmjs.com/package/@moonshot-ai/kimi-agent-sdk)。
+常见 `event` 类型包括 `TurnBegin`、正文片段、工具参数片段、`ToolResult`、`StatusUpdate`（token 用量）等——与 [第 26 课](/chapters/26-agent-events) 要自建的事件思路相近。
 
 还有 **`method: "request"`**（带 `id`）：Agent **向你的客户端要答复**，例如工具审批 `ApprovalRequest`；客户端必须回 JSON-RPC `result`，否则 Agent 会卡住。这是 **真·双向**，比 SSE 单向推字复杂一档。
 
 ### 6.3 和第 11 课 JSON-RPC 的异同
 
-| | 第 11 课举例 | Kimi Wire |
+| | 第 11 课举例 | Agent IPC |
 |--|-------------|-----------|
 | 信封 | `jsonrpc` / `method` / `params` / `id` | ✅ 同样是 JSON-RPC 2.0 |
 | 传输 | 常比喻为 **一次 HTTP 一个 JSON** | **长连接 stdio**，多轮、多条消息 |
 | 流式 | 一般不讨论 | **`event` 通知** 流式推送 |
 | 用途 | 理解「RPC 形状」 | **产品级 Agent IPC** |
 
-所以：第 11 课说的 JSON-RPC **没有过时**；Kimi 把它做成 **Agent 和外部程序之间的总线**，并且 **在 RPC 之上又套了 `type + payload` 的领域事件**。
+所以：第 11 课说的 JSON-RPC **没有过时**；成熟 Agent 把它当成 **Agent 和外部程序之间的总线**，并且在 RPC 之上再套 `type + payload` 的**领域事件**。
 
 ### 6.4 和 SSE 是「分工」不是「替代」
 
-- **Wire（JSON-RPC）**：给 **IDE、SDK、自动化测试** 用——控制 Agent、收步骤事件、批工具、回审批。  
-- **SSE（HTTP）**：Kimi CLI **内部调模型** 时，仍大概率走与 OpenAI 类似的 **HTTP streaming**（你在 Wire 外看不到，抓包云端仍是 `text/event-stream` 那一类）。
+- **Agent IPC（JSON-RPC）**：给 **IDE、SDK、自动化测试** 用——控制 Agent、收步骤事件、跑工具、回审批。  
+- **SSE（HTTP）**：Agent **内部调模型** 时，仍走与 OpenAI 类似的 **HTTP streaming**（你在 IPC 外看不到，抓包云端仍是 `text/event-stream` 那一类）。
 
 因此：
 
-- 不是说「行业从 SSE 换成了 Kimi JSON-RPC」；  
+- 不是说「行业从 SSE 换成了 JSON-RPC」；  
 - 而是 **「对外用 JSON-RPC 管 Agent；对内仍用 SSE 管模型」**——两层协议叠在一起。
 
 ### 6.5 还有一条线：ACP
 
-`kimi acp` 用 **Agent Client Protocol**（编辑器生态里的标准），底层也是 **stdio + JSON-RPC 2.0**，方法和 Wire 不完全相同（如 `session/request_permission`）。  
-Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sdk**。
+**Agent Client Protocol**（编辑器生态里的约定），底层也是 **stdio + JSON-RPC 2.0**，方法与自建 IPC 不完全相同（如 `session/request_permission`）。  
+Zed 等编辑器集成走的是这条。
 
-若你只做 **网页 `fetch` 调 DeepSeek**（本课程 16 课），**不必先实现 Wire**；若你做 **「外挂一个自己的 Kimi / Agent 控制台」**，才需要读 Wire 文档。
+若你只做 **网页 `fetch` 调 DeepSeek**（第 18 课），**不必先实现 Agent IPC**；若你做 **自研 Agent 控制台或 IDE 插件**，再考虑 JSON-RPC 事件层（第 26 课会动手定义事件类型）。
 
 ---
 
@@ -234,7 +226,7 @@ Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sd
 | 第 14 课 网关 `StreamingResponse` | ✅ 仍是正确抽象（真换模型也只是换上游字节来源） |
 | 第 15 课 手写 vs `eventsource-parser` | ✅ 生产常用库；排错、读抓包仍要懂 `data:` |
 | 第 18 课 DeepSeek SSE | ✅ 与官方文档一致，不是偏门 |
-| 第 17 课（本课） | 分清 **SSE（对模型）** vs **JSON-RPC Wire（对 Agent 进程）** |
+| 第 17 课（本课） | 分清 **SSE（对模型）** vs **JSON-RPC IPC（对 Agent 进程）** |
 
 **不必焦虑「明天全网不用 SSE」**；要焦虑的是：
 
@@ -253,7 +245,7 @@ Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sd
 | 「EventSource 不能用就是 SSE 废了」 | 废的是 **GET-only API**，不是协议；`fetch` 读流即可 |
 | 「HTTP/2 之后 SSE 没缺点了」 | **代理缓冲、空闲断开、单向** 仍在 |
 | 「OpenAI 上了 WebSocket = SSE 淘汰」 | 官方仍写 **HTTP streaming = SSE**；WS 是 **另一条模式** |
-| 「Kimi Wire = 全行业不用 SSE 了」 | Wire 是 **Agent↔宿主 IPC**；模型侧仍常用 **HTTP SSE** |
+| 「Agent IPC = 全行业不用 SSE 了」 | IPC 是 **Agent↔宿主**；模型侧仍常用 **HTTP SSE** |
 
 ---
 
@@ -263,7 +255,7 @@ Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sd
 - [ ] 能说出 **DeepSeek / Anthropic / OpenAI 默认流式仍是什么**吗？  
 - [ ] 能区分 **「SSE 协议」** 和 **`EventSource` API** 吗？  
 - [ ] 知道 **WebSocket 在业界的增量场景**（多轮 Agent）吗？  
-- [ ] 能说出 **Kimi Wire** 解决的是 **stdio 上双向 RPC**，不是替代 DeepSeek SSE 吗？  
+- [ ] 能说出 **Agent IPC** 解决的是 **stdio 上双向 RPC**，不是替代 DeepSeek SSE 吗？  
 
 ## 下一课
 
@@ -277,7 +269,6 @@ Multica、Zed 等集成走的是这条。Wire 更偏 **自建 UI / kimi-agent-sd
 - [DeepSeek — Create Chat Completion](https://api-docs.deepseek.com/api/create-chat-completion)  
 - [MDN — Server-sent events](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events)  
 - [WHATWG — Server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html)  
-- [Kimi Code — Wire 模式](https://moonshotai.github.io/kimi-cli/zh/customization/wire-mode.html)  
-- [@moonshot-ai/kimi-agent-sdk](https://www.npmjs.com/package/@moonshot-ai/kimi-agent-sdk)
+- [Agent Client Protocol](https://agentclientprotocol.com/)
 
 [← 第 18 课](/chapters/18-streaming)

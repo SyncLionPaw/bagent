@@ -260,7 +260,7 @@ const reader = res.body.getReader();
 
 ## 后续
 
-- [第 22 课 · 正经 Agent 工程（第三阶段）](/chapters/22-agent-project)
+- [第 22 课 · TypeScript](/chapters/22-typescript)（第三阶段）
 - [第 17 课 · SSE 为什么火过、现在又安静了](/chapters/17-sse-landscape)（纯阅读，行业背景）  
 
 [← 第 15 课 SSE 解析](/chapters/15-sse-parse) · [第 19 课 网页流式 →](/chapters/19-web-stream) · [第 17 课 行业背景 →](/chapters/17-sse-landscape) · [MDN SSE](https://developer.mozilla.org/zh-CN/docs/Web/API/Server-sent_events) · [JSON-RPC 2.0](https://www.jsonrpc.org/specification) · [DeepSeek stream](https://api-docs.deepseek.com/api/create-chat-completion)

@@ -36,7 +36,7 @@ export DEEPSEEK_API_KEY=sk-...
 npm run ch20
 ```
 
-浏览器打开 **http://localhost:3020**。
+浏览器打开 `http://localhost:3020`。
 
 ---
 
