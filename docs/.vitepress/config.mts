@@ -95,6 +95,11 @@ export default defineConfig({
           { text: "第 32 课 — 右侧辅助栏", link: "/chapters/32-vscode-auxiliarybar" },
           { text: "第 33 课 — 打包 VSIX", link: "/chapters/33-vscode-vsix" },
           { text: "第 34 课 — Thinking 事件", link: "/chapters/34-agent-thinking" },
+          { text: "第 35 课 — 工具审批", link: "/chapters/35-tool-approval" },
+          { text: "第 36 课 — 工具钩子", link: "/chapters/36-tool-hooks" },
+          { text: "第 37 课 — 两个循环", link: "/chapters/37-two-loops" },
+          { text: "第 38 课 — 三种产品形态", link: "/chapters/38-agent-product" },
+          { text: "第 39 课 — ACP", link: "/chapters/39-agent-client-protocol" },
         ],
       },
       {

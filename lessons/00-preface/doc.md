@@ -6,8 +6,13 @@
 
 你会用 **Node.js** 写 `.mjs`，从「调一次大模型 API」开始，逐章补上对话、工具调用、记忆与编排，一步步拼出 Agent。每章只加一个概念，配一段能跑的代码。
 
-这是**教程**，不是装好就能上生产的 npm 包。  
-**课程连载中**：第 1–10 课为**第一阶段**；**第 11–21 课为第二阶段**；**第 22 课起为第三阶段**（[TypeScript](/chapters/22-typescript) → [messages](/chapters/23-agent-messages) → 代码智能体）。
+第三阶段后半（[第 38 课](/chapters/38-agent-product) 起）会讲：学完内核之后，**同一种 Agent 可以长出三种用法**——都共用 [第 36 课](/chapters/36-tool-hooks) 的 loop / 事件 / 钩子：
+
+1. **终端 CLI** — TUI 分屏（消息区 + 输入区）  
+2. **IDE 插件** — Webview + worker（[第 30–33 课](/chapters/30-vscode-extension) 已入门）  
+3. **自有 UI** — 订阅本机 Agent 服务（[第 28 课](/chapters/28-agent-network) 的 SSE 范式），界面由**你**的前端来画  
+
+**课程结构**：第 1–10 课 **第一阶段**；第 11–21 课 **第二阶段**；第 22–38 课 **第三阶段**；**第 39 课起第四部分**（行业协议 ACP、内核抽包、三种壳的动手实现）。
 
 ## 技术栈约定
 
@@ -71,4 +76,10 @@ lessons/NN-xxx/
 32. [第 32 课 · 右侧辅助栏](/chapters/32-vscode-auxiliarybar)
 33. [第 33 课 · 打包 VSIX](/chapters/33-vscode-vsix)
 34. [第 34 课 · Thinking 事件](/chapters/34-agent-thinking)
-35. [第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)（扩展阅读）
+35. [第 35 课 · 工具审批](/chapters/35-tool-approval)
+36. [第 36 课 · 工具钩子](/chapters/36-tool-hooks)
+37. [第 37 课 · 输入与 Agent 循环](/chapters/37-two-loops)（扩展阅读）
+38. [第 38 课 · CLI + 插件 + 自有 UI](/chapters/38-agent-product)（第三阶段收官）
+39. [第 39 课 · ACP（IDE 连 Agent）](/chapters/39-agent-client-protocol)（第四部分开篇）
+
+扩展阅读：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)

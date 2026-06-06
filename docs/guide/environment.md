@@ -50,6 +50,8 @@ npm run ch31:compile   # 第 31 课：spawn 子进程版插件
 npm run ch32:compile   # 第 32 课：auxiliarybar 右侧栏（需先 ch31:compile）
 npm run ch33:package   # 第 33 课：把第 32 课打成 .vsix
 npm run ch34           # 第 34 课：Thinking 事件（终端）
+npm run ch35           # 第 35 课：工具审批（终端 y/N）
+npm run ch36           # 第 36 课：工具钩子 + 结果截断
 npm run dev    # 文档 http://localhost:5173/bagent/
 ```
 

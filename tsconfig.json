@@ -14,6 +14,8 @@
     "lessons/25-agent-stream/**/*.ts",
     "lessons/26-agent-events/**/*.ts",
     "lessons/28-agent-network/**/*.ts",
-    "lessons/34-agent-thinking/**/*.ts"
+    "lessons/34-agent-thinking/**/*.ts",
+    "lessons/35-tool-approval/**/*.ts",
+    "lessons/36-tool-hooks/**/*.ts"
   ]
 }

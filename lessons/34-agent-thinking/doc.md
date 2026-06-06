@@ -117,8 +117,9 @@ npm run ch34
 
 | 层 | 本课 | 30–32 课 |
 |----|------|----------|
-| 事件定义 | ✅ 已扩展 | 仍用旧 6 事件 |
-| 下一步 | — | 把 `ThinkingUpdated` 画进 Webview 折叠块 |
+| 事件定义 | ✅ 已扩展 Thinking | 仍用旧 6 事件 |
+| 工具审批 | ❌ 仍是 `ToolCallStart` 后立刻 `runTool` | ❌ 同样未做 |
+| 下一步 | [第 35 课](/chapters/35-tool-approval) 补审批 | 把 `ThinkingUpdated` + 批准按钮画进 Webview |
 
 内核升级 **不必** 先改插件；终端跑通事件后，再同步到 `31-vscode-spawn/agent/`。
 
@@ -142,4 +143,4 @@ npm run ch34
 
 ---
 
-[← 第 26 课](/chapters/26-agent-events) · [第 33 课](/chapters/33-vscode-vsix) · [第 11 课](/chapters/11-inference)
+[← 第 26 课](/chapters/26-agent-events) · [第 35 课](/chapters/35-tool-approval) · [第 11 课](/chapters/11-inference)

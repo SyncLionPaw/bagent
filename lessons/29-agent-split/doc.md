@@ -45,7 +45,7 @@
 
 - UI 进程可以更「轻」、甚至跑在浏览器沙箱里  
 - 少把 Key 散落到每个前端  
-- 工具执行集中在一处，便于 **审批、审计、限路径**（你们 `tools.ts` 的 `allowed` 白名单就是雏形）
+- 工具执行集中在一处，便于 **审批、审计、限路径**（[第 36 课](/chapters/36-tool-hooks) `tools.ts` 的白名单就是雏形）
 
 ### 2.3 多个客户端，共用一个 Agent
 
@@ -77,7 +77,7 @@ server ─┼─ VS Code 插件
 
 ## 3. VS Code 插件通常长什么样
 
-不必先会写插件，先记 **角色分工**（对应你们已写的名字）：
+不必先会写插件，先记 **角色分工**（对应 [第 28、31 课](/chapters/28-agent-network) 已写的名字）：
 
 ```text
 ┌─────────────────────────────────────────┐
@@ -101,13 +101,13 @@ server ─┼─ VS Code 插件
 |------|------------|
 | **HTTP + SSE**（`localhost:3028`） | 就是 [第 28 课](/chapters/28-agent-network)；插件里 `fetch` 订阅 |
 | **stdio + JSON 行** | [第 31 课](/chapters/31-vscode-spawn)：`spawn` 子进程，一行一条 `AgentEvent`；背景见 [第 17 课](/chapters/17-sse-landscape) |
-| **约定协议（如 ACP）** | 编辑器生态的标准化事件名；你们先用自建 `AgentEvent` 理解原理即可 |
+| **约定协议（如 ACP）** | 编辑器生态的标准化事件名；本教程先用自建 `AgentEvent` 学原理，[第 39 课](/chapters/39-agent-client-protocol) 再讲 ACP |
 
 插件侧典型工作：
 
 1. 读用户选中的文件 / 命令面板输入 → 当成 `message`  
 2. 订阅事件流 → `ChunkUpdated` 更新侧边栏  
-3. `ToolCallStart` 时弹「是否允许读某文件」→ 批准后 server 才 `runTool`（你们尚未实现审批，但架构位在这）  
+3. `ToolCallStart` 时弹「是否允许读某文件」→ 批准后 server 才 `runTool`（终端内核见 [第 35 课](/chapters/35-tool-approval)；31–32 课插件尚未同步）  
 4. `TurnEnd` 后把 diff 预览进编辑器  
 
 **重点**：插件作者大部分时间写的是 **订阅端 + 编辑器 API**，不是重写 Agent Loop。
@@ -129,7 +129,7 @@ server ─┼─ VS Code 插件
 
 ---
 
-## 5. 和你们课程的完整弧线
+## 5. 课程的完整弧线
 
 ```text
 24  Loop + history
