@@ -110,6 +110,7 @@ export default defineConfig({
           { text: "第 44 课 — 按类型读文件", link: "/chapters/44-read-dispatch" },
           { text: "第 45 课 — 联网与用户追问", link: "/chapters/45-web-search" },
           { text: "第 46 课 — Reminder 注入", link: "/chapters/46-reminder-injection" },
+          { text: "第 47 课 — 对话保存", link: "/chapters/47-chat-save" },
         ],
       },
       {
