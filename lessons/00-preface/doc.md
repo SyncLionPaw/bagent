@@ -12,7 +12,7 @@
 2. **IDE 插件** — Webview + worker（[第 30–33 课](/chapters/30-vscode-extension) 已入门）  
 3. **自有 UI** — 订阅本机 Agent 服务（[第 28 课](/chapters/28-agent-network) 的 SSE 范式），界面由**你**的前端来画  
 
-**课程结构**：第 1–10 课 **第一阶段**；第 11–21 课 **第二阶段**；第 22–38 课 **第三阶段**；**第 39 课起第四部分**（行业协议 ACP、内核抽包、三种壳的动手实现）。
+**课程结构**：第 1–10 课 **第一阶段**；第 11–21 课 **第二阶段**；第 22–38 课 **第三阶段**；**第 39–51 课第四部分**（ACP、插件对齐 ch36 内核，以及 grep、读写删、行号、局部改、白名单命令等工具课；连载中）。
 
 ## 技术栈约定
 
@@ -45,7 +45,7 @@ lessons/NN-xxx/
 | 第一阶段 | 1–10 | 终端与网页 Agent |
 | 第二阶段 | 11–21 | 推理与流式（[第 17 课](/chapters/17-sse-landscape) 扩展阅读） |
 | 第三阶段 | 22–38 | Agent 内核、IDE 插件、产品全景 |
-| 第四部分 | 39+ | …[grep](/chapters/41-code-search)；…[按类型读文件](/chapters/44-read-dispatch)；[联网与用户追问](/chapters/45-web-search) |
+| 第四部分 | 39–51 | ACP；grep、读写删、行号、局部改、Reminder、对话保存、[白名单命令](/chapters/51-run-command) 等 |
 | 扩展阅读 | 101–102 | [VS Code 插件入门](/chapters/101-vscode-extension)、[计算器 demo](/chapters/102-vscode-calculator) |
 | 规划中 | 120 | [编辑与 Diff 预览](/chapters/120-edit-diff)（写盘工具，尚未实现） |
 
@@ -98,7 +98,13 @@ lessons/NN-xxx/
 42. [第 42 课 · 模型列表 /models](/chapters/42-model-list)  
 43. [第 43 课 · 危险工具 write_file](/chapters/43-write-file)  
 44. [第 44 课 · 按类型读文件](/chapters/44-read-dispatch)  
-45. [第 45 课 · 联网与用户追问](/chapters/45-web-search)
+45. [第 45 课 · 联网与用户追问](/chapters/45-web-search)  
+46. [第 46 课 · 用户消息 Reminder 注入](/chapters/46-reminder-injection)  
+47. [第 47 课 · 对话保存（斜杠命令）](/chapters/47-chat-save)  
+48. [第 48 课 · read_file 行号](/chapters/48-read-lines)  
+49. [第 49 课 · str_replace 局部修改](/chapters/49-str-replace)  
+50. [第 50 课 · delete_file 删除文件](/chapters/50-delete-file)  
+51. [第 51 课 · run_command 白名单命令](/chapters/51-run-command)
 
 **扩展阅读**：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape) · [第 101 课 · VS Code 插件入门](/chapters/101-vscode-extension) · [第 102 课 · 计算器插件](/chapters/102-vscode-calculator)
 
