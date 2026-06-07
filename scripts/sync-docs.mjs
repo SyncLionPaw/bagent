@@ -39,4 +39,15 @@ for (const file of fs.readdirSync(chaptersDir)) {
   console.log(`removed stale chapter: ${file}`);
 }
 
+// 站点展示页截图（源文件在 lessons/51-run-command/）
+const showcaseNames = ["ama.png", "foodmap.png", "swiss.png"];
+const showcaseSrc = path.join(lessonsDir, "51-run-command");
+const showcaseDest = path.join(root, "docs", "public", "showcase");
+for (const file of showcaseNames) {
+  const src = path.join(showcaseSrc, file);
+  if (!fs.existsSync(src)) continue;
+  fs.mkdirSync(showcaseDest, { recursive: true });
+  fs.copyFileSync(src, path.join(showcaseDest, file));
+}
+
 console.log(`synced ${synced.size} lessons → docs/chapters`);

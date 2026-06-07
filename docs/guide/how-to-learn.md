@@ -13,6 +13,7 @@
 
 ## 学习建议
 
+- 想先看成品效果：[Agent 能做什么](./showcase)（三个真实插件对话截图）  
 - **一次只学一章**，在 `lessons/` 对应目录跑 `npm run chNN`（或课文里的命令）  
 - **不要只读文档**：代码和文档同步；改课文后 `npm run sync-docs` 更新本站  
 - **环境**：Node 20+；第 1 课起需要 `DEEPSEEK_API_KEY`；插件课（30–33）需要 [VS Code](https://code.visualstudio.com/) 或 Cursor  
@@ -21,6 +22,7 @@
 
 | 你想… | 从哪开始 |
 |--------|----------|
+| 看 Agent 能干什么 | [案例展示](./showcase) |
 | 零基础 | [环境准备](./environment) → [第 1 课](../chapters/01-deepseek) |
 | 已有对话机器人，想学 Agent 工程 | [第 22 课 TypeScript](../chapters/22-typescript) → [第 24 课 Loop](../chapters/24-agent-loop) |
 | 学流式与双进程 | [第 25 课](../chapters/25-agent-stream) → [第 28 课](../chapters/28-agent-network) |

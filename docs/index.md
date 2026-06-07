@@ -7,7 +7,7 @@ hero:
     alt: bagent
   name: bagent
   text: 用 JavaScript 学会大模型 Agent
-  tagline: 循序渐进 · 连载至第 39 课 · 全程 Node / TypeScript
+  tagline: 循序渐进 · 插件课连载至第 51 课 · 全程 Node / TypeScript
   actions:
     - theme: brand
       text: 第 1 课 · 开始
@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: 第 0 章 · 前言
       link: /chapters/00-preface
+    - theme: alt
+      text: Agent 能做什么
+      link: /guide/showcase
     - theme: alt
       text: 怎么学
       link: /guide/how-to-learn
@@ -39,4 +42,4 @@ features:
 | 第三阶段 | 22–38 | Agent Loop、事件、VS Code 插件、Thinking / 审批 / 钩子 |
 | 第四部分 | 39+ | ACP、三种产品形态（阅读）；动手实现连载中 |
 
-[第 0 章 前言 →](/chapters/00-preface) · [怎么学 →](/guide/how-to-learn) · [第 36 课 内核实验台 →](/chapters/36-tool-hooks)
+[第 0 章 前言 →](/chapters/00-preface) · [Agent 能做什么 →](/guide/showcase) · [怎么学 →](/guide/how-to-learn) · [第 51 课 完整插件 →](/chapters/51-run-command)

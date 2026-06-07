@@ -6,6 +6,10 @@
 
 `npm run`、`git`、`node`、`python` 等**编译/运行类**本课不做，留给后续**沙箱课**统一处理。
 
+第 51 课是**截至目前的完整插件课**：前面各课的 `web_search`、`read_file`（行号）、`str_replace`、`delete_file`、对话保存、plan 等都在，本课再补上 `run_command`。
+
+三个真实用法（查资料写页、前端精修、C 多文件实现）见站点 **[Agent 能做什么](/guide/showcase)**——横跨多课，不限于本课。
+
 ---
 
 ## 1. 白名单：观测三件套
@@ -87,6 +91,7 @@ npm run ch51:compile
 
 ## 检查点
 
+- [ ] 读过 [Agent 能做什么](/guide/showcase) 三个案例？
 - [ ] `curl` / `ps` / `lsof` 可执行？
 - [ ] `npm` / `git` / `node` 提示沙箱课？
 - [ ] `ls` / `grep` 提示专用工具？
