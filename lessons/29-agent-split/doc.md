@@ -77,7 +77,7 @@ server ─┼─ VS Code 插件
 
 ## 3. VS Code 插件通常长什么样
 
-不必先会写插件，先记 **角色分工**（对应 [第 28、31 课](/chapters/28-agent-network) 已写的名字）：
+不必先会写插件。可先读 [第 101 课](/chapters/101-vscode-extension)。下面只记 **角色分工**（对应 [第 28、31 课](/chapters/28-agent-network) 已写的名字）：
 
 ```text
 ┌─────────────────────────────────────────┐

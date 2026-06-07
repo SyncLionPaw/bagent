@@ -7,7 +7,7 @@ hero:
     alt: bagent
   name: bagent
   text: 用 JavaScript 学会大模型 Agent
-  tagline: 循序渐进 · 连载更新 · 全程 Node
+  tagline: 循序渐进 · 连载至第 39 课 · 全程 Node / TypeScript
   actions:
     - theme: brand
       text: 第 1 课 · 开始
@@ -21,15 +21,22 @@ hero:
 
 features:
   - title: 只用 JavaScript
-    details: Node、`fetch`、`.mjs` 示例 — 不绕 Python，不绑重型框架。
-  - title: 循序渐进
-    details: 从一次 API 调用开始，逐章加上消息、工具、联网、流式；新章节持续追加。
-  - title: 课程而非产品
-    details: 教你原理和写法；不是装好即用的生产 SDK。
+    details: Node、fetch、.mjs 与 TypeScript — 从 API 调用到 Agent Loop，示例均可本地运行。
+  - title: 四个阶段
+    details: 终端 Agent（1–10）→ 推理与流式（11–21）→ 代码智能体内核与 IDE（22–38）→ ACP 与产品化（39 起）。
+  - title: 课程 + 可跑示例
+    details: 每章 lessons/ 目录有代码；扩展阅读含 VS Code 插件入门（101）与计算器 demo（102）。
 ---
 
 ## 这是什么
 
-**bagent** 是一门**连载中的中文课程**：用 **JavaScript** 带你**一步一步**做出大模型 Agent。**第 22 课**插播 TypeScript，**第 23 课起**造代码智能体。
+**bagent** 是一门**连载中的中文课程**：用 **JavaScript / TypeScript** 带你做出大模型 Agent。
 
-[第 1 课 →](/chapters/01-deepseek) · [第 22 课 TypeScript →](/chapters/22-typescript) · [第 0 章 →](/chapters/00-preface)
+| 阶段 | 课次 | 内容 |
+|------|------|------|
+| 第一阶段 | 1–10 | 对话、工具、联网、网页 UI |
+| 第二阶段 | 11–21 | API 字段、本地推理、SSE 与浏览器流式 |
+| 第三阶段 | 22–38 | Agent Loop、事件、VS Code 插件、Thinking / 审批 / 钩子 |
+| 第四部分 | 39+ | ACP、三种产品形态（阅读）；动手实现连载中 |
+
+[第 0 章 前言 →](/chapters/00-preface) · [怎么学 →](/guide/how-to-learn) · [第 36 课 内核实验台 →](/chapters/36-tool-hooks)

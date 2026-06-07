@@ -22,7 +22,15 @@ npm run build
 
 站点图标在 `docs/public/`（`favicon.ico`、`logo-icon.png` 等），源图是仓库根目录 `image.png`。改图后跑 `npm run sync-brand` 再 build。
 
-新增一章：建 `lessons/NN-xxx/doc.md` + 示例，改 `config.mts` 侧栏与 `package.json` 的 `scripts`（如 `ch02`）。
+新增一章：
+
+1. 建 `lessons/NN-xxx/doc.md` + 示例代码  
+2. `npm run sync-docs`（会删除 `docs/chapters/` 里已无对应 lesson 的陈旧页面）  
+3. 改 `docs/.vitepress/config.mts` 侧栏  
+4. 根目录 `package.json` 加 `scripts`（如 `ch36`、`ch102:compile`）  
+5. `npm run build` 确认无 dead link  
+
+扩展阅读课（如 101、102）只写 `doc.md` 即可；有代码 demo 的课（如 102）另加 `package.json` 与 `src/`。
 
 ## GitHub 自动构建与发布
 

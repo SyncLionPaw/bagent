@@ -16,7 +16,7 @@ F5（第 30–32 课）     Extension Development Host，改代码 → compile �
 
 ## 1. 打包里有什么
 
-`vsce package` 会按 [`.vscodeignore`](/lessons/32-vscode-auxiliarybar/.vscodeignore) 打包，**主要是 `out/`**：
+`vsce package` 会按第 32 课目录下的 `.vscodeignore` 打包，**主要是 `out/`**：
 
 ```text
 out/extension.js          # 插件入口

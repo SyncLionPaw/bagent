@@ -36,16 +36,28 @@ lessons/NN-xxx/
 
 `npm run build` 时会把课文同步到本站 `docs/chapters/`。
 
-## 目前已发布（第 1–21 课 + 连载）
+## 目前已发布
 
-侧栏与下文列表同步更新；**未写完的课不会提前挂链接**。
+侧栏与下文列表同步；**未写完的课不会提前挂链接**。
+
+| 阶段 | 课次 | 说明 |
+|------|------|------|
+| 第一阶段 | 1–10 | 终端与网页 Agent |
+| 第二阶段 | 11–21 | 推理与流式（[第 17 课](/chapters/17-sse-landscape) 扩展阅读） |
+| 第三阶段 | 22–38 | Agent 内核、IDE 插件、产品全景 |
+| 第四部分 | 39+ | [ACP](/chapters/39-agent-client-protocol)（阅读）；动手实现连载中 |
+| 扩展阅读 | 101–102 | [VS Code 插件入门](/chapters/101-vscode-extension)、[计算器 demo](/chapters/102-vscode-calculator) |
 
 ## 怎么开始
 
 1. [怎么学](/guide/how-to-learn)  
 2. [环境准备](/guide/environment)  
 3. [第 1 课 · DeepSeek API](/chapters/01-deepseek)  
-4. [第 2 课 · 终端一问一答](/chapters/02-terminal-chat)  
+
+## 完整课表
+
+1. [第 1 课 · DeepSeek API](/chapters/01-deepseek)  
+2. [第 2 课 · 终端一问一答](/chapters/02-terminal-chat)  
 5. [第 3 课 · 循环提问](/chapters/03-chat-loop)  
 6. [第 4 课 · 多轮对话](/chapters/04-multi-round)  
 7. [第 5 课 · 系统提示词](/chapters/05-system-prompt)  
@@ -71,15 +83,15 @@ lessons/NN-xxx/
 27. [第 27 课 · Agent 架构常识](/chapters/27-agent-architecture)（扩展阅读）  
 28. [第 28 课 · 双进程事件](/chapters/28-agent-network)  
 29. [第 29 课 · 拆开的好处](/chapters/29-agent-split)（扩展阅读）  
-30. [第 30 课 · VS Code 插件](/chapters/30-vscode-extension)
-31. [第 31 课 · spawn Agent 子进程](/chapters/31-vscode-spawn)
-32. [第 32 课 · 右侧辅助栏](/chapters/32-vscode-auxiliarybar)
-33. [第 33 课 · 打包 VSIX](/chapters/33-vscode-vsix)
-34. [第 34 课 · Thinking 事件](/chapters/34-agent-thinking)
-35. [第 35 课 · 工具审批](/chapters/35-tool-approval)
-36. [第 36 课 · 工具钩子](/chapters/36-tool-hooks)
-37. [第 37 课 · 输入与 Agent 循环](/chapters/37-two-loops)（扩展阅读）
-38. [第 38 课 · CLI + 插件 + 自有 UI](/chapters/38-agent-product)（第三阶段收官）
+30. [第 30 课 · VS Code 插件](/chapters/30-vscode-extension)  
+31. [第 31 课 · spawn Agent 子进程](/chapters/31-vscode-spawn)  
+32. [第 32 课 · 右侧辅助栏](/chapters/32-vscode-auxiliarybar)  
+33. [第 33 课 · 打包 VSIX](/chapters/33-vscode-vsix)  
+34. [第 34 课 · Thinking 事件](/chapters/34-agent-thinking)  
+35. [第 35 课 · 工具审批](/chapters/35-tool-approval)  
+36. [第 36 课 · 工具钩子](/chapters/36-tool-hooks)  
+37. [第 37 课 · 输入与 Agent 循环](/chapters/37-two-loops)（扩展阅读）  
+38. [第 38 课 · CLI + 插件 + 自有 UI](/chapters/38-agent-product)（第三阶段收官）  
 39. [第 39 课 · ACP（IDE 连 Agent）](/chapters/39-agent-client-protocol)（第四部分开篇）
 
-扩展阅读：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape)
+**扩展阅读**：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape) · [第 101 课 · VS Code 插件入门](/chapters/101-vscode-extension) · [第 102 课 · 计算器插件](/chapters/102-vscode-calculator)

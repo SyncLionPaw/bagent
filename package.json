@@ -43,6 +43,7 @@
     "ch31:compile": "npm install --prefix lessons/31-vscode-spawn && npm run compile --prefix lessons/31-vscode-spawn",
     "ch32:compile": "npm run compile --prefix lessons/32-vscode-auxiliarybar",
     "ch33:package": "node scripts/package-lesson32.mjs",
+    "ch102:compile": "npm install --prefix lessons/102-vscode-calculator && npm run compile --prefix lessons/102-vscode-calculator",
     "ch34": "tsx lessons/34-agent-thinking/chat.ts",
     "ch35": "tsx lessons/35-tool-approval/chat.ts",
     "ch36": "tsx lessons/36-tool-hooks/chat.ts"

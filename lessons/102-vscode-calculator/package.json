@@ -1,0 +1,50 @@
+{
+  "name": "bagent-lesson102-calculator",
+  "displayName": "第 102 课 计算器",
+  "description": "VS Code 计算器插件示例（命令 + 侧边栏 Webview）",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "calculator.eval",
+        "title": "Calculator: 计算算式"
+      },
+      {
+        "command": "calculator.focus",
+        "title": "Calculator: 打开侧边栏"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "calculator",
+          "title": "Calculator",
+          "icon": "$(symbol-numeric)"
+        }
+      ]
+    },
+    "views": {
+      "calculator": [
+        {
+          "type": "webview",
+          "id": "calculator.panel",
+          "name": "Calc"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.8.3"
+  }
+}

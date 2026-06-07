@@ -79,7 +79,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "第三阶段 · 代码智能体",
+        text: "第三阶段 · 代码智能体（22–38）",
         collapsed: false,
         items: [
           { text: "第 22 课 — TypeScript 入门", link: "/chapters/22-typescript" },
@@ -87,9 +87,7 @@ export default defineConfig({
           { text: "第 24 课 — Agent Loop", link: "/chapters/24-agent-loop" },
           { text: "第 25 课 — 流式 Agent", link: "/chapters/25-agent-stream" },
           { text: "第 26 课 — 流式事件", link: "/chapters/26-agent-events" },
-          { text: "第 27 课 — Agent 架构常识", link: "/chapters/27-agent-architecture" },
           { text: "第 28 课 — 双进程事件", link: "/chapters/28-agent-network" },
-          { text: "第 29 课 — 拆开的好处", link: "/chapters/29-agent-split" },
           { text: "第 30 课 — VS Code 插件", link: "/chapters/30-vscode-extension" },
           { text: "第 31 课 — spawn 子进程", link: "/chapters/31-vscode-spawn" },
           { text: "第 32 课 — 右侧辅助栏", link: "/chapters/32-vscode-auxiliarybar" },
@@ -97,8 +95,13 @@ export default defineConfig({
           { text: "第 34 课 — Thinking 事件", link: "/chapters/34-agent-thinking" },
           { text: "第 35 课 — 工具审批", link: "/chapters/35-tool-approval" },
           { text: "第 36 课 — 工具钩子", link: "/chapters/36-tool-hooks" },
-          { text: "第 37 课 — 两个循环", link: "/chapters/37-two-loops" },
           { text: "第 38 课 — 三种产品形态", link: "/chapters/38-agent-product" },
+        ],
+      },
+      {
+        text: "第四部分 · 协议与产品（39+）",
+        collapsed: false,
+        items: [
           { text: "第 39 课 — ACP", link: "/chapters/39-agent-client-protocol" },
         ],
       },
@@ -107,6 +110,11 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: "第 17 课 — SSE 行业背景", link: "/chapters/17-sse-landscape" },
+          { text: "第 27 课 — Agent 架构常识", link: "/chapters/27-agent-architecture" },
+          { text: "第 29 课 — 拆开的好处", link: "/chapters/29-agent-split" },
+          { text: "第 37 课 — 两个循环", link: "/chapters/37-two-loops" },
+          { text: "第 101 课 — VS Code 插件入门", link: "/chapters/101-vscode-extension" },
+          { text: "第 102 课 — 计算器插件", link: "/chapters/102-vscode-calculator" },
         ],
       },
       {

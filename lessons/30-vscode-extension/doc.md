@@ -2,6 +2,8 @@
 
 **约 45 分钟** · [第 29 课](/chapters/29-agent-split) 之后
 
+没写过 VS Code 插件？可先读 [第 101 课](/chapters/101-vscode-extension)（流程概览），需要完整小例子时看 [第 102 课](/chapters/102-vscode-calculator)，再回来跟做本课。
+
 订阅 [第 28 课](/chapters/28-agent-network) 的 Agent 事件，在 **左侧活动栏** 打开聊天侧边栏：输入框 + 气泡流式回复，不用命令面板、不用输出面板。
 
 ```text

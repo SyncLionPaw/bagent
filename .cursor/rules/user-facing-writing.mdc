@@ -1,0 +1,53 @@
+---
+description: 面向学员写作 + VitePress 站内链接勿 dead link
+alwaysApply: true
+---
+
+# 面向用户写作
+
+文档、课文、UI 文案的读者是 **站点上的其他用户**，不是仓库作者。只写读者需要知道的内容，不要把「我们如何对齐需求」写进正文。
+
+## 不要写
+
+- 向作者交差的免责声明：「和 Agent 无关」「独立短文、与主线无关」
+- 否定式定位：「不需要 AI」「不是技术参谋」——除非用户在问对比
+- 元评论：「按你的要求」「本课在路线图中的位置」
+
+## 要写
+
+- 直接讲主题；前置知识用普通链接：「可先读第 101 课」
+- 例子自洽即可（计算器、Hello World 等）
+
+---
+
+# 链接：谨防 VitePress dead link
+
+`npm run build` 会检查站内链接，dead link 会导致构建失败（`ignoreDeadLinks` 只放过 README、`../`、`.py`）。
+
+## 站内课文链接
+
+- 格式：`/chapters/{lessons 目录名}`，例如 `/chapters/30-vscode-extension`
+- **不要**写 `lessons/…/doc.md`、**不要**加 `.md`、**不要**臆造 slug
+- 链之前确认存在 `lessons/NN-xxx/doc.md`；新建或改课文后执行 `npm run sync-docs`（同步到 `docs/chapters/`）
+- 新课若要进侧栏，同步改 `docs/.vitepress/config.mts`
+
+## 图片
+
+- 课文插图：`/lessons/NN-xxx/image.png`（`sync-docs` 会复制到 `docs/public/lessons/`）
+- 不要链到仅存在于 `lessons/` 下、未随 sync 发布的资源
+
+## 动手后
+
+改完 `lessons/**/doc.md` 或 `docs/**` 后，有新增/变更链接时跑：
+
+```bash
+npm run sync-docs && npm run build
+```
+
+## 对照
+
+```
+❌ [第 40 课](/chapters/40-not-written-yet)   ← 文件不存在，build 报错
+❌ [doc](../lessons/30-vscode-extension/doc.md)
+✅ [第 30 课](/chapters/30-vscode-extension)
+```
