@@ -56,7 +56,9 @@
     "ch44": "tsx lessons/44-read-dispatch/chat.ts",
     "ch44:compile": "npm install --prefix lessons/44-read-dispatch && npm run compile --prefix lessons/44-read-dispatch",
     "ch45": "tsx lessons/45-web-search/chat.ts",
-    "ch45:compile": "npm install --prefix lessons/45-web-search && npm run compile --prefix lessons/45-web-search"
+    "ch45:compile": "npm install --prefix lessons/45-web-search && npm run compile --prefix lessons/45-web-search",
+    "ch46": "tsx lessons/46-reminder-injection/chat.ts",
+    "ch46:compile": "npm install --prefix lessons/46-reminder-injection && npm run compile --prefix lessons/46-reminder-injection"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"

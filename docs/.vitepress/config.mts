@@ -109,6 +109,7 @@ export default defineConfig({
           { text: "第 43 课 — write_file", link: "/chapters/43-write-file" },
           { text: "第 44 课 — 按类型读文件", link: "/chapters/44-read-dispatch" },
           { text: "第 45 课 — 联网与用户追问", link: "/chapters/45-web-search" },
+          { text: "第 46 课 — Reminder 注入", link: "/chapters/46-reminder-injection" },
         ],
       },
       {
