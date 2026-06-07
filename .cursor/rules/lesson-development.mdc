@@ -1,0 +1,69 @@
+---
+description: bagent 新课开发：fork、插件隔离、编译、文档与发布检查
+globs: lessons/**
+alwaysApply: false
+---
+
+# 课程开发流程
+
+每课是 **`lessons/NN-slug/`** 下的**独立可运行单元**。第 40 课起的 VS Code 插件课在上一课基础上 **fork + 增量**，不把新特性回写到更早的课。
+
+## 新建一课（checklist）
+
+1. **Fork** 上一课目录 → `lessons/NN-new-feature/`（目录名即站点 slug）
+2. **实现** 本课增量（通常 `agent/` 内核 + `src/` 插件壳；终端课改 `chat.ts`）
+3. **重命名插件命名空间**（extension 课必做）：`bagentNN` 贯穿 `package.json`（`name`、`command`、`viewsContainers`、`configuration`）、`src/extension.ts`、`src/spawn.ts` 报错文案
+4. **写 `doc.md`**：标题、时长、链到上一课、`独立插件`、原理、代码表、`动手`、`检查点`（写作与链接见 `user-facing-writing.mdc`）
+5. **根 `package.json`** 加 `chNN` / `chNN:compile`（extension 课 `:compile` 里 `npm install --prefix lessons/NN-slug`）
+6. **`docs/.vitepress/config.mts`** 侧栏加条目：`/chapters/NN-slug`
+7. **验证**：`npm run chNN:compile`（extension）或 `npm run chNN`（终端）；改链接后 `npm run sync-docs && npm run build`
+8. **提交**：仅当用户明确要求时 commit
+
+## 目录约定
+
+| 路径 | 作用 |
+|------|------|
+| `doc.md` | 课文源稿（`sync-docs` → `docs/chapters/`） |
+| `agent/` | Worker 子进程：loop、tools、hooks、system、worker |
+| `src/` | VS Code 扩展：extension、sidebar、spawn |
+| `chat.ts` | 终端版入口（部分课） |
+| `out/` | 编译产物；`.vscodeignore` 只发布 `out/**` |
+| `.vscode/launch.json` | F5 从**本课目录**启动 Extension Host |
+
+Extension 课 `compile`：`tsc -p . && tsc -p agent/tsconfig.json`
+
+## 隔离原则
+
+- **只改当前课目录** + 根脚本 + 侧栏；不往 40–47 等旧课补同功能
+- 每课插件 **command / view / config 前缀独立**（`bagent47` vs `bagent48`），避免多课同时开发冲突
+- 用户数据放 **`~/.bagent/`**（API Key、`{项目名}/` 下 plan、chats、sessions），不写进项目仓库
+
+## Agent 内核习惯
+
+- 工具在 `agent/tools.ts`；校验放 `before` 钩子，输出限长放 `after`（`truncateAfter`）
+- `read_file` 等带行号/分页的工具：**勿对编号文本用 `truncateMiddle`**（首尾截断会破坏 `offset` 续读）；改行对齐截断 + 续读提示
+- `system.ts` 与工具描述保持一致；新工具记得 `autoApprove` / 审批策略
+- 终端调试：`npm run chNN` 或课内 `chat.ts`；插件调试：打开课目录 → F5
+
+## 文档与站点
+
+- 站内链：`/chapters/NN-slug`（**无** `.md`、**无** `lessons/…` 路径）
+- 插图放课目录 `image1.png` 等；正文引用 `/lessons/NN-slug/image1.png`
+- 新课进侧栏才算正式发布；`sync-docs` 会删 `docs/chapters/` 里已无源稿的 stale 章节
+
+## 常见命令
+
+```bash
+npm run ch48:compile          # extension 课：安装依赖 + 双 tsconfig 编译
+npm run sync-docs && npm run build   # 同步课文 + dead link 检查
+```
+
+## 反例
+
+```
+❌ 在 47 课里加 read_file 行号（应 fork 成 48）
+❌ [第 48 课](../lessons/48-read-lines/doc.md)
+❌ 忘记把 bagent47 改成 bagent48
+❌ doc 里写「按用户要求加了行号」
+✅ lessons/48-read-lines 独立插件 + 侧栏 + ch48:compile
+```

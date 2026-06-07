@@ -60,7 +60,15 @@
     "ch46": "tsx lessons/46-reminder-injection/chat.ts",
     "ch46:compile": "npm install --prefix lessons/46-reminder-injection && npm run compile --prefix lessons/46-reminder-injection",
     "ch47": "tsx lessons/47-chat-save/chat.ts",
-    "ch47:compile": "npm install --prefix lessons/47-chat-save && npm run compile --prefix lessons/47-chat-save"
+    "ch47:compile": "npm install --prefix lessons/47-chat-save && npm run compile --prefix lessons/47-chat-save",
+    "ch48": "tsx lessons/48-read-lines/chat.ts",
+    "ch48:compile": "npm install --prefix lessons/48-read-lines && npm run compile --prefix lessons/48-read-lines",
+    "ch49": "tsx lessons/49-str-replace/chat.ts",
+    "ch49:compile": "npm install --prefix lessons/49-str-replace && npm run compile --prefix lessons/49-str-replace",
+    "ch50": "tsx lessons/50-delete-file/chat.ts",
+    "ch50:compile": "npm install --prefix lessons/50-delete-file && npm run compile --prefix lessons/50-delete-file",
+    "ch51": "tsx lessons/51-run-command/chat.ts",
+    "ch51:compile": "npm install --prefix lessons/51-run-command && npm run compile --prefix lessons/51-run-command"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"
