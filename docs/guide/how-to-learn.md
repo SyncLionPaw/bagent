@@ -1,6 +1,6 @@
-# 怎么学
+# 路线
 
-## 路线概览
+## 概览
 
 ```text
 第一阶段  1–10    终端 / 网页 Agent（JavaScript .mjs）
@@ -11,12 +11,12 @@
 扩展阅读  101–102 VS Code 插件入门 · 计算器 demo
 ```
 
-## 学习建议
+## 说明
 
-- 想先看成品效果：[Agent 能做什么](./showcase)（三个真实插件对话截图）  
-- **一次只学一章**，在 `lessons/` 对应目录跑 `npm run chNN`（或课文里的命令）  
-- **不要只读文档**：代码和文档同步；改课文后 `npm run sync-docs` 更新本站  
-- **环境**：Node 20+；第 1 课起需要 `DEEPSEEK_API_KEY`；插件课（30–33）需要 [VS Code](https://code.visualstudio.com/) 或 Cursor  
+- [Agent 能做什么](./showcase) — 三个真实插件对话截图  
+- 每章代码在 `lessons/`，可跑 `npm run chNN`（或课文里的命令）  
+- 改课文后 `npm run sync-docs` 同步本站  
+- Node 20+；第 1 课起需要 `DEEPSEEK_API_KEY`；插件课需要 [VS Code](https://code.visualstudio.com/) 或 Cursor  
 
 ## 按阶段入口
 

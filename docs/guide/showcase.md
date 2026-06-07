@@ -1,57 +1,39 @@
-# Agent 能做什么
+# 案例
 
-三个在 **VS Code / Cursor 插件**里跑出来的真实对话截图。它们**不只属于第 51 课**——分别用到 [第 45 课](/chapters/45-web-search) 联网、[第 49 课](/chapters/49-str-replace) 局部改、[第 46 课](/chapters/46-reminder-injection) plan 等；叠到 [第 51 课](/chapters/51-run-command) 插件上，就是目前课程里**最完整的一档代码 Agent**。
+**bagent** 做完之后，是侧边栏里一个能动手干活的 **code agent**。背包的比喻很简单：东西不多，拉链拉开就能看清；背在编辑器里跟着项目走，不是把你拽进一套沉重 framework。危险操作会弹窗让你确认。
 
-自己试：从 [第 40 课](/chapters/40-vscode-kernel-upgrade) 起跟到第 51 课，或 `npm run ch51:compile` 后 F5 打开 `lessons/51-run-command`。
-
----
-
-## 总览
-
-| 案例 | 任务 | 主要工具 | 相关课文 |
-|------|------|----------|----------|
-| A · 情书账本 | 查公开资料，写 HTML 小报 | `web_search` → `write_file` | [45](/chapters/45-web-search)、[43](/chapters/43-write-file) |
-| B · 京都食帖 | 精修已有美食地图页 | `str_replace` | [49](/chapters/49-str-replace)、[48](/chapters/48-read-lines) |
-| C · Swiss Table | 用 C 实现哈希表并测试 | `plan_operate` → `write_file` | [46](/chapters/46-reminder-injection)、[43](/chapters/43-write-file) |
-
-写文件、改代码、查资料——**不必等后续沙箱课**。编译运行（`gcc`、`npm test`）仍建议在本地终端或等沙箱课再接上。
+下面是三个真实截图，都是同一套插件对话出来的。
 
 ---
 
-## 案例 A：查资料 + 写页面
+## 案例一：联网查资料，生成 HTML 页面
 
-![web_search 查票房与投资信息，再 write_file 生成 HTML](/showcase/ama.png)
+![电影投资小报](/showcase/ama.png)
 
-用户要一份电影投资主题的 HTML 小报（《一封情书的账本》）。Agent 先用 **`web_search`** 查票房、成本、出品方、赞助商等公开信息，再 **`write_file`** 落成 `amam-report.html`——预览里的数字与机构名来自检索，不是瞎编。用户再说「艺术表达可以更大胆」，Agent 规划改字体、配色、破网格。
+**用户说什么：** 做一份关于电影 [《给阿嬷的情书》](https://movie.douban.com/subject/37116446/) 的投资回报小报，要能在浏览器里打开看。
 
-**侧重点是 search → write。**
-
----
-
-## 案例 B：局部改前端
-
-![str_replace 调圆角、加广告与分享按钮](/showcase/foodmap.png)
-
-京都美食地图 `food-map.html` 已能跑（地图、餐厅卡片、评论）。用户提 UI：悬浮卡片圆角再精致一点、加点广告和社媒分享。Agent 连续 **`str_replace`** 改 CSS（`border-radius: 20px` → `10px` → `8px`），每次审批、只动匹配片段。
-
-**侧重点是 read（行号）+ exact match 改代码。**
+**Agent 做了什么：** 先上网查票房、成本、出品方等信息，再写一个 `amam-report.html`，左侧预览就是成稿。后面用户还提了「版式再大胆一点」，Agent 继续改样式。
 
 ---
 
-## 案例 C：多文件写 C
+## 案例二：在已有页面上改 UI
 
-![plan 拆步 + write_file 写 swisstable.h/.c 与测试](/showcase/swiss.png)
+![京都美食地图](/showcase/foodmap.png)
 
-用户：「用 C 实现一个简单的 swisstable，并测试」。Agent **`plan_operate`** 拆三步：头文件 → 实现 → 测试与 benchmark；侧栏里逐步 **`write_file`** 落盘。终端里是本地 `gcc` 跑出的测试结果——Agent 负责写与拆任务，编译执行由你在终端完成（或等沙箱课）。
+**用户说什么：** 这个美食地图页面已经有了；把悬浮卡片的圆角收小一点，再加些广告位和分享按钮，看起来更真。
 
-**侧重点是 plan + 多文件写入，语言不限于前端。**
+**Agent 做了什么：** 直接改 `food-map.html` 里的 CSS 和结构，不用整页重写。截图里能看到两次小改，改完刷新预览即可。
 
 ---
 
-## 还想继续
+## 案例三：用 C 写数据结构并测试
 
-| 方向 | 入口 |
-|------|------|
-| 从零跟课 | [怎么学](/guide/how-to-learn) · [第 1 课](/chapters/01-deepseek) |
-| 插件内核 | [第 40 课](/chapters/40-vscode-kernel-upgrade) → [第 51 课](/chapters/51-run-command) |
-| 维护本站 | [维护文档站](/development) |
+![Swiss Table](/showcase/swiss.png)
+
+**用户说什么：** 用 C 实现一个简单的 Swiss Table（开放寻址哈希表），并写测试。
+
+**Agent 做了什么：** 先列计划（头文件 → 实现 → 测试），再逐个写出 `.h` / `.c` 文件。终端里的编译和测试结果是用户在本地跑的；Agent 负责把代码写出来。
+
+---
+
+想自己动手做同款 agent，从 [第 0 章 前言](/chapters/00-preface) 或 [第 1 课](/chapters/01-deepseek) 开始跟即可。

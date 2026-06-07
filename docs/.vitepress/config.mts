@@ -6,7 +6,7 @@ const base = "/bagent/";
 export default defineConfig({
   lang: "zh-Hans",
   title: "bagent",
-  description: "用 JavaScript 循序渐进学会大模型 Agent",
+  description: "小、能拉开拉链看、能背着走的 mini code agent 课程",
   base,
   head: [
     ["link", { rel: "icon", href: `${base}favicon.ico`, sizes: "any" }],
@@ -24,21 +24,19 @@ export default defineConfig({
       text: "在 GitHub 上编辑此页",
     },
     footer: {
-      message: "JavaScript 课程 · 循序渐进学会大模型 Agent",
+      message: "小 · 能拉开拉链看 · 背着走",
       copyright: "Copyright © bagent contributors",
     },
     nav: [
       { text: "案例", link: "/guide/showcase", activeMatch: "/guide/showcase" },
-      { text: "怎么学", link: "/guide/how-to-learn", activeMatch: "/guide/how-to-learn" },
-      { text: "第 1 课", link: "/chapters/01-deepseek", activeMatch: "/chapters/01" },
+      { text: "开始", link: "/chapters/01-deepseek", activeMatch: "/chapters/01" },
     ],
     sidebar: [
       {
         text: "从这里开始",
         items: [
           { text: "简介", link: "/" },
-          { text: "Agent 能做什么", link: "/guide/showcase" },
-          { text: "怎么学", link: "/guide/how-to-learn" },
+          { text: "案例", link: "/guide/showcase" },
           { text: "环境准备", link: "/guide/environment" },
         ],
       },

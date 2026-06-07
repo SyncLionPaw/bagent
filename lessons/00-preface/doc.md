@@ -51,9 +51,8 @@ lessons/NN-xxx/
 
 ## 怎么开始
 
-1. [怎么学](/guide/how-to-learn)  
-2. [环境准备](/guide/environment)  
-3. [第 1 课 · DeepSeek API](/chapters/01-deepseek)  
+1. [环境准备](/guide/environment)  
+2. [第 1 课 · DeepSeek API](/chapters/01-deepseek)  
 
 ## 完整课表
 
