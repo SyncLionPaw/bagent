@@ -1,0 +1,61 @@
+{
+  "name": "bagent-lesson44",
+  "displayName": "bagent 第 44 课",
+  "description": "按类型读文件：stat_file、PDF/Excel 解析、hint 分发",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent44.open",
+        "title": "bagent: 打开 Agent 面板（读文件分发）"
+      }
+    ],
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "bagent44",
+          "title": "bagent",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "bagent44": [
+        {
+          "type": "webview",
+          "id": "bagent44.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent 第 44 课",
+      "properties": {
+        "bagent44.apiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/deepseek-api-key",
+          "description": "DeepSeek API Key 文件路径"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p . && tsc -p agent/tsconfig.json"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}

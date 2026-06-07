@@ -46,7 +46,17 @@
     "ch102:compile": "npm install --prefix lessons/102-vscode-calculator && npm run compile --prefix lessons/102-vscode-calculator",
     "ch34": "tsx lessons/34-agent-thinking/chat.ts",
     "ch35": "tsx lessons/35-tool-approval/chat.ts",
-    "ch36": "tsx lessons/36-tool-hooks/chat.ts"
+    "ch36": "tsx lessons/36-tool-hooks/chat.ts",
+    "ch40:compile": "npm install --prefix lessons/40-vscode-kernel-upgrade && npm run compile --prefix lessons/40-vscode-kernel-upgrade",
+    "ch41": "tsx lessons/41-code-search/chat.ts",
+    "ch42": "tsx lessons/42-model-list/chat.ts",
+    "ch42:compile": "npm install --prefix lessons/42-model-list && npm run compile --prefix lessons/42-model-list",
+    "ch43": "tsx lessons/43-write-file/chat.ts",
+    "ch43:compile": "npm install --prefix lessons/43-write-file && npm run compile --prefix lessons/43-write-file",
+    "ch44": "tsx lessons/44-read-dispatch/chat.ts",
+    "ch44:compile": "npm install --prefix lessons/44-read-dispatch && npm run compile --prefix lessons/44-read-dispatch",
+    "ch45": "tsx lessons/45-web-search/chat.ts",
+    "ch45:compile": "npm install --prefix lessons/45-web-search && npm run compile --prefix lessons/45-web-search"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"

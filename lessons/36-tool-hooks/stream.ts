@@ -16,7 +16,7 @@ export async function* streamEvents(
         Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "deepseek-v4-flash",
+        model: process.env.DEEPSEEK_MODEL ?? "deepseek-v4-flash",
         messages: history,
         tools: toolDefinitions,
         stream: true,

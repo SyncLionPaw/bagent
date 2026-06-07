@@ -45,8 +45,9 @@ lessons/NN-xxx/
 | 第一阶段 | 1–10 | 终端与网页 Agent |
 | 第二阶段 | 11–21 | 推理与流式（[第 17 课](/chapters/17-sse-landscape) 扩展阅读） |
 | 第三阶段 | 22–38 | Agent 内核、IDE 插件、产品全景 |
-| 第四部分 | 39+ | [ACP](/chapters/39-agent-client-protocol)（阅读）；动手实现连载中 |
+| 第四部分 | 39+ | …[grep](/chapters/41-code-search)；…[按类型读文件](/chapters/44-read-dispatch)；[联网与用户追问](/chapters/45-web-search) |
 | 扩展阅读 | 101–102 | [VS Code 插件入门](/chapters/101-vscode-extension)、[计算器 demo](/chapters/102-vscode-calculator) |
+| 规划中 | 120 | [编辑与 Diff 预览](/chapters/120-edit-diff)（写盘工具，尚未实现） |
 
 ## 怎么开始
 
@@ -92,6 +93,14 @@ lessons/NN-xxx/
 36. [第 36 课 · 工具钩子](/chapters/36-tool-hooks)  
 37. [第 37 课 · 输入与 Agent 循环](/chapters/37-two-loops)（扩展阅读）  
 38. [第 38 课 · CLI + 插件 + 自有 UI](/chapters/38-agent-product)（第三阶段收官）  
-39. [第 39 课 · ACP（IDE 连 Agent）](/chapters/39-agent-client-protocol)（第四部分开篇）
+39. [第 39 课 · ACP（IDE 连 Agent）](/chapters/39-agent-client-protocol)（第四部分开篇）  
+40. [第 40 课 · 插件对齐 ch36 内核](/chapters/40-vscode-kernel-upgrade)  
+41. [第 41 课 · 代码搜索 grep](/chapters/41-code-search)  
+42. [第 42 课 · 模型列表 /models](/chapters/42-model-list)  
+43. [第 43 课 · 危险工具 write_file](/chapters/43-write-file)  
+44. [第 44 课 · 按类型读文件](/chapters/44-read-dispatch)  
+45. [第 45 课 · 联网与用户追问](/chapters/45-web-search)
 
 **扩展阅读**：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape) · [第 101 课 · VS Code 插件入门](/chapters/101-vscode-extension) · [第 102 课 · 计算器插件](/chapters/102-vscode-calculator)
+
+**规划中**：[第 120 课 · 编辑与 Diff 预览](/chapters/120-edit-diff)

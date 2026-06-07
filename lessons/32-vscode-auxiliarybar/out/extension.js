@@ -48,21 +48,13 @@ function activate(context) {
     const cwd = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? context.extensionPath;
     const config = vscode.workspace.getConfiguration("bagent32");
     const deepseekPath = (0, apiKey_1.resolveApiKeyPath)(config.get("apiKeyPath", apiKey_1.DEFAULT_API_KEY_PATH), cwd);
-    const tavilyPath = (0, apiKey_1.resolveApiKeyPath)(config.get("tavilyApiKeyPath", apiKey_1.DEFAULT_TAVILY_KEY_PATH), cwd);
     const apiKey = (0, apiKey_1.loadDeepSeekApiKey)(deepseekPath);
     if (!apiKey) {
         void vscode.window.showErrorMessage(`bagent: 未找到 DeepSeek API Key。请创建 ${deepseekPath}（单行 sk-...），或 export DEEPSEEK_API_KEY。`);
         return;
     }
-    const tavilyKey = (0, apiKey_1.loadTavilyApiKey)(tavilyPath);
-    if (!tavilyKey) {
-        void vscode.window.showWarningMessage(`bagent: 未配置 Tavily Key（${tavilyPath}）。web_search 不可用；get_time / calculate / read_file 仍可用。`);
-    }
-    const agentEnv = { DEEPSEEK_API_KEY: apiKey };
-    if (tavilyKey)
-        agentEnv.TAVILY_API_KEY = tavilyKey;
     agent = new spawn_1.AgentProcess();
-    agent.start(context.extensionPath, cwd, agentEnv);
+    agent.start(context.extensionPath, cwd, { DEEPSEEK_API_KEY: apiKey });
     context.subscriptions.push({ dispose: () => agent?.shutdown() });
     const sidebar = new sidebar_1.ChatSidebarProvider(agent);
     context.subscriptions.push(vscode.window.registerWebviewViewProvider("bagent32.chat", sidebar, {

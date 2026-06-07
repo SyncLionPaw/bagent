@@ -16,6 +16,9 @@
     "lessons/28-agent-network/**/*.ts",
     "lessons/34-agent-thinking/**/*.ts",
     "lessons/35-tool-approval/**/*.ts",
-    "lessons/36-tool-hooks/**/*.ts"
+    "lessons/36-tool-hooks/**/*.ts",
+    "lessons/41-code-search/**/*.ts",
+    "lessons/42-model-list/**/*.ts",
+    "lessons/43-write-file/**/*.ts"
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "name": "bagent-lesson42",
+  "displayName": "bagent 第 42 课",
+  "description": "模型列表：/models 斜杠命令 + 工具栏按钮，utils 拉取 DeepSeek /models",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent42.open",
+        "title": "bagent: 打开 Agent 面板（模型列表）"
+      }
+    ],
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "bagent42",
+          "title": "bagent",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "bagent42": [
+        {
+          "type": "webview",
+          "id": "bagent42.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent 第 42 课",
+      "properties": {
+        "bagent42.apiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/deepseek-api-key",
+          "description": "DeepSeek API Key 文件路径"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p . && tsc -p agent/tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}

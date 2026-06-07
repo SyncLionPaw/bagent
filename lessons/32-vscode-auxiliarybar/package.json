@@ -1,8 +1,8 @@
 {
   "name": "bagent-lesson32",
   "displayName": "bagent 第 32 课",
-  "description": "Webview 挂 secondarySidebar，与 Chat 同侧",
-  "version": "0.0.2",
+  "description": "Webview 挂 secondarySidebar，与 Chat 同侧（ch36 内核）",
+  "version": "0.0.3",
   "private": true,
   "engines": {
     "vscode": "^1.94.0"
@@ -42,17 +42,12 @@
           "type": "string",
           "default": "~/.bagent/deepseek-api-key",
           "description": "DeepSeek API Key 文件路径"
-        },
-        "bagent32.tavilyApiKeyPath": {
-          "type": "string",
-          "default": "~/.bagent/tavily-api-key",
-          "description": "Tavily API Key（web_search）"
         }
       }
     }
   },
   "scripts": {
-    "precompile": "test -d node_modules || ln -sf ../31-vscode-spawn/node_modules node_modules; test -d agent || ln -sf ../31-vscode-spawn/agent agent; test -f src/apiKey.ts || (ln -sf ../../31-vscode-spawn/src/apiKey.ts src/apiKey.ts && ln -sf ../../31-vscode-spawn/src/events.ts src/events.ts && ln -sf ../../31-vscode-spawn/src/spawn.ts src/spawn.ts)",
+    "precompile": "test -d node_modules || ln -sf ../40-vscode-kernel-upgrade/node_modules node_modules; rm -f agent; ln -sf ../40-vscode-kernel-upgrade/agent agent",
     "compile": "tsc -p . && tsc -p agent/tsconfig.json"
   },
   "devDependencies": {

@@ -196,6 +196,8 @@ description: toolDesc(
 | `pwd`       | 512   | `truncateAfter(512)`  |
 | `ls`        | 4_000 | `truncateAfter(4000)` |
 | `read_file` | 8_000 | `truncateAfter(8000)` |
+| `grep` | 8_000 | `truncateAfter(8000)` + `grepPathBefore` |
+| `write_file` | 512（结果 JSON） | `writePathBefore` — 见 [第 43 课](/chapters/43-write-file) |
 
 
 模型在 **选工具时** 就能看到上限；截断后正文里的 `[已截断…]` 是 **第二次提醒**。
@@ -289,4 +291,4 @@ npm run ch36
 
 ---
 
-[← 第 35 课](/chapters/35-tool-approval) · [第 37 课](/chapters/37-two-loops) · [第 38 课](/chapters/38-agent-product)
+[← 第 35 课](/chapters/35-tool-approval) · [第 41 课 · grep](/chapters/41-code-search) · [第 37 课](/chapters/37-two-loops)

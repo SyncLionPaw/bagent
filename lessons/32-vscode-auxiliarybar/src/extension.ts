@@ -1,9 +1,7 @@
 import * as vscode from "vscode";
 import {
   DEFAULT_API_KEY_PATH,
-  DEFAULT_TAVILY_KEY_PATH,
   loadDeepSeekApiKey,
-  loadTavilyApiKey,
   resolveApiKeyPath,
 } from "./apiKey";
 import { ChatSidebarProvider } from "./sidebar";
@@ -25,10 +23,6 @@ export function activate(context: vscode.ExtensionContext) {
     config.get<string>("apiKeyPath", DEFAULT_API_KEY_PATH),
     cwd,
   );
-  const tavilyPath = resolveApiKeyPath(
-    config.get<string>("tavilyApiKeyPath", DEFAULT_TAVILY_KEY_PATH),
-    cwd,
-  );
 
   const apiKey = loadDeepSeekApiKey(deepseekPath);
   if (!apiKey) {
@@ -38,18 +32,8 @@ export function activate(context: vscode.ExtensionContext) {
     return;
   }
 
-  const tavilyKey = loadTavilyApiKey(tavilyPath);
-  if (!tavilyKey) {
-    void vscode.window.showWarningMessage(
-      `bagent: 未配置 Tavily Key（${tavilyPath}）。web_search 不可用；get_time / calculate / read_file 仍可用。`,
-    );
-  }
-
-  const agentEnv: Record<string, string> = { DEEPSEEK_API_KEY: apiKey };
-  if (tavilyKey) agentEnv.TAVILY_API_KEY = tavilyKey;
-
   agent = new AgentProcess();
-  agent.start(context.extensionPath, cwd, agentEnv);
+  agent.start(context.extensionPath, cwd, { DEEPSEEK_API_KEY: apiKey });
   context.subscriptions.push({ dispose: () => agent?.shutdown() });
 
   const sidebar = new ChatSidebarProvider(agent);

@@ -10,7 +10,7 @@
 | 第 9 课 | `TAVILY_API_KEY`（[Tavily](https://docs.tavily.com/welcome)） |
 | 第 12 课 | Python **3.10+**；`npm run ch12:setup:cpu` 或 `ch12:setup:cuda` |
 | 第 14 课 | Python **3.10+**（假数据 SSE，无需 Key） |
-| 第 30–33、102 课 | [VS Code](https://code.visualstudio.com/) 或 Cursor；插件课需 **打开课目录文件夹** 后 F5 |
+| 第 30–33、40 课 | [VS Code](https://code.visualstudio.com/) 或 Cursor；**打开课目录文件夹** 后 F5 |
 | 第 31 课插件 | DeepSeek / Tavily Key 见上；读 `~/.bagent/` |
 
 ## 命令速查
@@ -43,6 +43,7 @@ npm run ch30:compile
 npm run ch31:compile
 npm run ch32:compile   # 需先 ch31:compile
 npm run ch33:package
+npm run ch40:compile   # 第 40 课：ch36 内核 + 审批 Webview
 npm run ch102:compile  # 第 102 课计算器 demo
 
 # 文档站本地预览
@@ -50,4 +51,4 @@ npm run dev            # http://localhost:5173/bagent/
 npm run build          # 发布前检查 dead link
 ```
 
-[第 1 课 →](../chapters/01-deepseek) · [第 102 课 计算器插件 →](../chapters/102-vscode-calculator)
+[第 1 课 →](../chapters/01-deepseek) · [第 40 课 插件对齐 ch36 →](../chapters/40-vscode-kernel-upgrade)

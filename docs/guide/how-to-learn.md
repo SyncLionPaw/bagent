@@ -24,7 +24,7 @@
 | 零基础 | [环境准备](./environment) → [第 1 课](../chapters/01-deepseek) |
 | 已有对话机器人，想学 Agent 工程 | [第 22 课 TypeScript](../chapters/22-typescript) → [第 24 课 Loop](../chapters/24-agent-loop) |
 | 学流式与双进程 | [第 25 课](../chapters/25-agent-stream) → [第 28 课](../chapters/28-agent-network) |
-| 做 VS Code 插件 | [第 101 课](../chapters/101-vscode-extension) → [第 102 课 demo](../chapters/102-vscode-calculator) → [第 30 课](../chapters/30-vscode-extension) |
+| 做 VS Code 插件 | [第 101 课](../chapters/101-vscode-extension) → [第 102 课 demo](../chapters/102-vscode-calculator) → [第 30 课](../chapters/30-vscode-extension) → [第 40 课 ch36 对齐](../chapters/40-vscode-kernel-upgrade) |
 | 理解内核升级（Thinking / 审批） | [第 34–36 课](../chapters/34-agent-thinking) |
 | 看产品全景 | [第 38 课](../chapters/38-agent-product) · [第 39 课 ACP](../chapters/39-agent-client-protocol) |
 

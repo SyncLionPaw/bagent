@@ -2,10 +2,10 @@ import type { AgentEvent } from "./events.js";
 import { hooksWithApproval, runWithHooks, type ApproveTool } from "./hooks.js";
 import type { Messages } from "./messages.js";
 import { streamEvents } from "./stream.js";
+import { TERMINAL_SYSTEM } from "./system.js";
 import { hooksFor, runTool } from "./tools.js";
 
-const SYSTEM =
-  "你是终端里的代码助手。可用工具：pwd、ls、read_file；path 须绝对路径。各工具有返回字符上限（见工具说明），超长会截断。拿到工具结果后用自然语言回答，简洁。";
+const SYSTEM = TERMINAL_SYSTEM;
 
 export type { ApproveTool };
 

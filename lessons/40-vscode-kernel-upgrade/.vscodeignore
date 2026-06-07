@@ -1,0 +1,10 @@
+.vscode/**
+src/**
+agent/**
+tsconfig.json
+agent/tsconfig.json
+.gitignore
+doc.md
+image.png
+**/*.ts
+!out/**

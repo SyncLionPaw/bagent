@@ -103,6 +103,12 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "第 39 课 — ACP", link: "/chapters/39-agent-client-protocol" },
+          { text: "第 40 课 — 插件对齐 ch36", link: "/chapters/40-vscode-kernel-upgrade" },
+          { text: "第 41 课 — 代码搜索 grep", link: "/chapters/41-code-search" },
+          { text: "第 42 课 — 模型列表", link: "/chapters/42-model-list" },
+          { text: "第 43 课 — write_file", link: "/chapters/43-write-file" },
+          { text: "第 44 课 — 按类型读文件", link: "/chapters/44-read-dispatch" },
+          { text: "第 45 课 — 联网与用户追问", link: "/chapters/45-web-search" },
         ],
       },
       {
@@ -115,6 +121,13 @@ export default defineConfig({
           { text: "第 37 课 — 两个循环", link: "/chapters/37-two-loops" },
           { text: "第 101 课 — VS Code 插件入门", link: "/chapters/101-vscode-extension" },
           { text: "第 102 课 — 计算器插件", link: "/chapters/102-vscode-calculator" },
+        ],
+      },
+      {
+        text: "规划中",
+        collapsed: true,
+        items: [
+          { text: "第 120 课 — 编辑与 Diff", link: "/chapters/120-edit-diff" },
         ],
       },
       {

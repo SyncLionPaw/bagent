@@ -305,4 +305,4 @@ AgentEvent（ch26）→  本教程内核对内的事件名；可映射到 ACP �
 
 ---
 
-[← 第 38 课](/chapters/38-agent-product) · [第 31 课](/chapters/31-vscode-spawn) · [第 28 课](/chapters/28-agent-network) · [第 37 课](/chapters/37-two-loops)
+[← 第 38 课](/chapters/38-agent-product) · [第 40 课 · 插件对齐 ch36](/chapters/40-vscode-kernel-upgrade) · [第 31 课](/chapters/31-vscode-spawn)

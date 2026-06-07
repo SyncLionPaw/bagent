@@ -37,7 +37,6 @@ exports.AgentProcess = void 0;
 const node_child_process_1 = require("node:child_process");
 const node_readline_1 = require("node:readline");
 const path = __importStar(require("node:path"));
-/** 插件侧：spawn Agent 子进程，stdio 一行一条 JSON */
 class AgentProcess {
     proc = null;
     rl = null;
@@ -80,7 +79,7 @@ class AgentProcess {
     }
     async chat(message, onEvent) {
         if (!this.proc?.stdin) {
-            throw new Error("Agent 子进程未启动（检查 API Key 文件与 ch31:compile）");
+            throw new Error("Agent 子进程未启动（检查 API Key 与 ch32:compile）");
         }
         if (this.turnWait) {
             throw new Error("上一轮尚未结束");
@@ -90,6 +89,13 @@ class AgentProcess {
             const req = { op: "chat", message };
             this.proc.stdin.write(`${JSON.stringify(req)}\n`);
         });
+    }
+    approve(allow) {
+        if (!this.proc?.stdin) {
+            throw new Error("Agent 子进程未启动");
+        }
+        const req = { op: "approve", allow };
+        this.proc.stdin.write(`${JSON.stringify(req)}\n`);
     }
     shutdown() {
         if (this.proc?.stdin) {
