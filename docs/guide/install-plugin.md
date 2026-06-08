@@ -1,6 +1,6 @@
 # 安装插件（开箱即用）
 
-不想 clone 仓库、不想 `npm run compile`？从 **GitHub Release** 下载插件包装好，配好 Key 就能在 Cursor / VS Code 里用当前完整版 bagent Agent（第 53 课：diff 预览 + 写盘）。
+不想 clone 仓库、不想 `npm run compile`？从 **GitHub Release** 下载 **bagent** 插件，配好 Key 就能在 Cursor / VS Code 里用完整版 Code Agent（diff 预览 + Accept 写盘）。
 
 [GitHub Releases → 下载最新版](https://github.com/SyncLionPaw/bagent/releases/latest)
 
@@ -75,7 +75,7 @@ export TAVILY_API_KEY="tvly-..."
 
 ## 更新插件
 
-到 [Releases](https://github.com/SyncLionPaw/bagent/releases/latest) 下新版 `bagent-plugin.vsix`，再次「从 VSIX 安装」即可覆盖（或先卸载旧版 `bagent 第 53 课`）。
+到 [Releases](https://github.com/SyncLionPaw/bagent/releases/latest) 下新版 `bagent-plugin.vsix`，再次「从 VSIX 安装」即可覆盖（或先卸载旧版 **bagent**）。
 
 ---
 
@@ -83,7 +83,7 @@ export TAVILY_API_KEY="tvly-..."
 
 | 问题 | 处理 |
 |------|------|
-| 侧栏没反应 | 命令面板运行 **bagent: 打开 Agent 面板（第 53 课）** |
+| 侧栏没反应 | 命令面板运行 **bagent: 打开 Agent 面板** |
 | 提示找不到 Key | 检查 `~/.bagent/deepseek-api-key` 或 `DEEPSEEK_API_KEY` |
 | 没有联网搜索 | 配置 Tavily Key；没有则本地工具仍可用 |
 | 想自己改插件源码 | 克隆仓库，跟 [第 53 课](/chapters/53-diff-preview) 用 F5 开发 |

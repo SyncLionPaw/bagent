@@ -39,7 +39,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: bagent 插件 v${{ steps.asset.outputs.version }}
+          name: bagent v${{ steps.asset.outputs.version }}
           generate_release_notes: true
           files: |
             bagent-plugin.vsix

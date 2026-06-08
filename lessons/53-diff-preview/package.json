@@ -1,20 +1,31 @@
 {
-  "name": "bagent-lesson53",
-  "displayName": "bagent 第 53 课",
-  "description": "vscode.diff 预览编辑提案，Accept 后写盘",
+  "name": "bagent",
+  "displayName": "bagent",
+  "description": "侧边栏 Code Agent：读文件、改代码、跑命令；改文件前 diff 预览，Accept 后写盘",
   "version": "0.0.1",
   "private": true,
+  "icon": "media/icon.png",
+  "publisher": "bagent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SyncLionPaw/bagent.git"
+  },
+  "homepage": "https://synclionpaw.github.io/bagent/guide/install-plugin",
+  "bugs": {
+    "url": "https://github.com/SyncLionPaw/bagent/issues"
+  },
+  "keywords": ["agent", "ai", "code", "diff", "deepseek"],
   "engines": {
     "vscode": "^1.94.0"
   },
-  "categories": ["Other"],
+  "categories": ["Programming Languages", "Other"],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "bagent53.open",
-        "title": "bagent: 打开 Agent 面板（第 53 课）"
+        "title": "bagent: 打开 Agent 面板"
       },
       {
         "command": "bagent53.acceptEdit",
@@ -58,7 +69,7 @@
         {
           "id": "bagent53",
           "title": "bagent",
-          "icon": "$(comment-discussion)"
+          "icon": "media/sidebar-icon.png"
         }
       ]
     },
@@ -72,7 +83,7 @@
       ]
     },
     "configuration": {
-      "title": "bagent 第 53 课",
+      "title": "bagent",
       "properties": {
         "bagent53.apiKeyPath": {
           "type": "string",

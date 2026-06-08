@@ -39,6 +39,11 @@ def main() -> None:
     save_png(base, OUT / "logo-icon.png", 128)
     save_png(base, OUT / "apple-touch-icon.png", 180)
 
+    plugin_media = ROOT / "lessons" / "53-diff-preview" / "media"
+    plugin_media.mkdir(parents=True, exist_ok=True)
+    save_png(base, plugin_media / "icon.png", 128)
+    save_png(base, plugin_media / "sidebar-icon.png", 24)
+
     ico_src = base.copy()
     ico_src.thumbnail((48, 48), Image.Resampling.LANCZOS)
     ico_src.save(OUT / "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])

@@ -145,7 +145,7 @@ npm run ch53:package
 会 `npm install` → `compile` → `vsce package`，产出：
 
 ```text
-lessons/53-diff-preview/bagent-lesson53-0.0.1.vsix
+lessons/53-diff-preview/bagent-0.0.1.vsix
 ```
 
 把这个 `.vsix` 发给学习者即可。面向用户的固定下载入口：[GitHub Releases · bagent-plugin.vsix](https://github.com/SyncLionPaw/bagent/releases/latest)（见 [安装插件](/guide/install-plugin)）。
@@ -156,14 +156,14 @@ lessons/53-diff-preview/bagent-lesson53-0.0.1.vsix
 2. 或终端：
 
 ```bash
-cursor --install-extension /path/to/bagent-lesson53-0.0.1.vsix
+cursor --install-extension /path/to/bagent-0.0.1.vsix
 # code --install-extension …   # 纯 VS Code
 ```
 
 3. 配置 `~/.bagent/deepseek-api-key`（或 `export DEEPSEEK_API_KEY`）  
-4. 命令面板运行 **bagent: 打开 Agent 面板（第 53 课）**，或点右侧辅助栏 bagent 图标  
+4. 命令面板运行 **bagent: 打开 Agent 面板**，或点右侧辅助栏 bagent 图标  
 
-装的是**本课独立插件**（`bagent53`），与第 51、52 课插件可并存，但一般只启用一个。
+发布给用户时扩展名显示为 **bagent**（带 logo 与 README）。内部命令 ID 仍为 `bagent53`，与第 51、52 课插件可并存，但一般只启用一个。
 
 ---
 

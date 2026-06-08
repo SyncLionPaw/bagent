@@ -105,7 +105,7 @@ async function askUser(
 const toolNames = getToolDefinitions().map((t) => t.function.name).join("、");
 console.log(
   color.meta(
-    `第 53 课 — diff 预览 + Accept 写盘 · 工具：${toolNames}\n` +
+    `bagent — diff 预览 + Accept 写盘 · 工具：${toolNames}\n` +
       (hasWebSearch()
         ? "Tavily 已配置，含 web_search\n"
         : "未配置 TAVILY_API_KEY，无 web_search\n"),
