@@ -30,8 +30,8 @@ import{_ as i,o as a,c as n,a2 as h}from"./chunks/framework.DGu13UIe.js";const g
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ch102:compile</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # 第 102 课计算器 demo</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 从 VSIX 安装（无需 compile / F5）</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 扩展 ⋯ → 从 VSIX 安装… → bagent-0.0.1.vsix（或 Release 里的 bagent-plugin.vsix）</span></span>
-<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 或：cursor --install-extension lessons/53-diff-preview/bagent-0.0.1.vsix</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 扩展 ⋯ → 从 VSIX 安装… → bagent-0.0.2.vsix（或 Release 里的 bagent-plugin.vsix）</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 或：cursor --install-extension lessons/53-diff-preview/bagent-0.0.2.vsix</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 文档站本地预览</span></span>
 <span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">npm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> run</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> dev</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">            # http://localhost:5173/bagent/</span></span>
