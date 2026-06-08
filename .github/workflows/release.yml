@@ -1,0 +1,48 @@
+# 打 tag v* → 编译第 53 课插件 → 上传 .vsix 到 GitHub Release
+# 用户从 Releases 下载 bagent-plugin.vsix，无需 clone / compile
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Package extension
+        run: npm run ch53:package
+
+      - name: Prepare release asset
+        id: asset
+        run: |
+          VSIX=$(ls lessons/53-diff-preview/*.vsix | head -1)
+          VERSION=$(node -p "require('./lessons/53-diff-preview/package.json').version")
+          cp "$VSIX" bagent-plugin.vsix
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "vsix=$VSIX" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: bagent 插件 v${{ steps.asset.outputs.version }}
+          generate_release_notes: true
+          files: |
+            bagent-plugin.vsix
+            ${{ steps.asset.outputs.vsix }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

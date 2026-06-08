@@ -28,6 +28,7 @@ export default defineConfig({
       copyright: "Copyright © bagent contributors",
     },
     nav: [
+      { text: "安装插件", link: "/guide/install-plugin", activeMatch: "/guide/install-plugin" },
       { text: "案例", link: "/guide/showcase", activeMatch: "/guide/showcase" },
       { text: "开始", link: "/chapters/01-deepseek", activeMatch: "/chapters/01" },
     ],
@@ -36,6 +37,7 @@ export default defineConfig({
         text: "从这里开始",
         items: [
           { text: "简介", link: "/" },
+          { text: "安装插件", link: "/guide/install-plugin" },
           { text: "案例", link: "/guide/showcase" },
           { text: "环境准备", link: "/guide/environment" },
         ],
@@ -115,6 +117,8 @@ export default defineConfig({
           { text: "第 49 课 — str_replace 局部修改", link: "/chapters/49-str-replace" },
           { text: "第 50 课 — delete_file 删除文件", link: "/chapters/50-delete-file" },
           { text: "第 51 课 — run_command 白名单命令", link: "/chapters/51-run-command" },
+          { text: "第 52 课 — 编辑提案（不落盘）", link: "/chapters/52-edit-proposal" },
+          { text: "第 53 课 — Diff 预览写盘", link: "/chapters/53-diff-preview" },
         ],
       },
       {

@@ -1,0 +1,172 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AgentLoop = void 0;
+const autoApprove_js_1 = require("./autoApprove.js");
+const askUser_js_1 = require("./askUser.js");
+const editProposal_js_1 = require("./editProposal.js");
+const hooks_js_1 = require("./hooks.js");
+const stream_js_1 = require("./stream.js");
+const plan_js_1 = require("./plan.js");
+const system_js_1 = require("./system.js");
+const tools_js_1 = require("./tools.js");
+const SYSTEM = (0, system_js_1.getPluginSystem)();
+class AgentLoop {
+    history;
+    constructor(system = SYSTEM) {
+        this.history = [{ role: "system", content: system }];
+    }
+    /** 反序列化恢复对话（替换内存 history） */
+    replaceHistory(messages) {
+        this.history.length = 0;
+        this.history.push(...messages);
+    }
+    async *turn(userInput, approve, askUser, editApply) {
+        yield { type: "TurnStart", userInput };
+        this.history.push({ role: "user", content: userInput });
+        while (true) {
+            const stream = (0, stream_js_1.streamEvents)(this.history);
+            let step = await stream.next();
+            while (!step.done) {
+                yield step.value;
+                step = await stream.next();
+            }
+            const assistant = step.value;
+            this.history.push(assistant);
+            if (!assistant.tool_calls?.length) {
+                yield { type: "TurnEnd", text: assistant.content ?? "" };
+                return;
+            }
+            for (const call of assistant.tool_calls) {
+                const { name, arguments: args } = call.function;
+                yield { type: "ToolCallStart", name, arguments: args };
+                if (name === "ask_user_question") {
+                    const question = (0, askUser_js_1.parseAskUserQuestion)(args);
+                    if (!question) {
+                        const output = JSON.stringify({ ok: false, error: "question 不能为空" });
+                        yield { type: "ToolResult", name, output };
+                        this.history.push({
+                            role: "tool",
+                            tool_call_id: call.id,
+                            content: output,
+                        });
+                        continue;
+                    }
+                    yield { type: "AskUserPending", name, question };
+                    const userResult = await askUser(call, question);
+                    const raw = (0, askUser_js_1.formatAskUserToolOutput)(userResult);
+                    const output = (0, hooks_js_1.truncateMiddle)(raw, askUser_js_1.ASK_USER_MAX_CHARS);
+                    const truncated = output.length !== raw.length;
+                    yield {
+                        type: "ToolResult",
+                        name,
+                        output,
+                        truncated,
+                        originalLength: raw.length,
+                    };
+                    this.history.push({
+                        role: "tool",
+                        tool_call_id: call.id,
+                        content: output,
+                    });
+                    continue;
+                }
+                if ((0, editProposal_js_1.isEditTool)(name)) {
+                    const hooks = (0, tools_js_1.hooksFor)(call);
+                    const result = await (0, hooks_js_1.runWithHooks)(call, { maxOutputChars: hooks.maxOutputChars, before: hooks.before, after: [] }, tools_js_1.runTool);
+                    if (result.status === "aborted") {
+                        yield { type: "ToolCallDenied", name };
+                        yield { type: "ToolResult", name, output: result.output };
+                        this.history.push({
+                            role: "tool",
+                            tool_call_id: call.id,
+                            content: result.output,
+                        });
+                        continue;
+                    }
+                    const proposal = (0, editProposal_js_1.parseEditProposal)(result.output);
+                    if (!proposal) {
+                        const err = JSON.stringify({
+                            error: "编辑提案解析失败，未打开 diff（请重试或检查文件大小）",
+                        });
+                        yield { type: "ToolResult", name, output: err };
+                        this.history.push({
+                            role: "tool",
+                            tool_call_id: call.id,
+                            content: err,
+                        });
+                        continue;
+                    }
+                    yield {
+                        type: "EditProposal",
+                        tool: name,
+                        path: proposal.path,
+                        oldContent: proposal.oldContent,
+                        newContent: proposal.newContent,
+                        arguments: args,
+                    };
+                    const allowed = await editApply();
+                    if (!allowed) {
+                        yield { type: "ToolCallDenied", name };
+                        yield { type: "ToolResult", name, output: hooks_js_1.TOOL_DENIED };
+                        this.history.push({
+                            role: "tool",
+                            tool_call_id: call.id,
+                            content: hooks_js_1.TOOL_DENIED,
+                        });
+                        continue;
+                    }
+                    const applied = (0, editProposal_js_1.formatAppliedEdit)(proposal.path, proposal.newContent);
+                    yield {
+                        type: "ToolResult",
+                        name,
+                        output: applied,
+                        truncated: false,
+                        originalLength: applied.length,
+                    };
+                    this.history.push({
+                        role: "tool",
+                        tool_call_id: call.id,
+                        content: applied,
+                    });
+                    continue;
+                }
+                if ((0, autoApprove_js_1.isAutoApproved)(call)) {
+                    yield { type: "ToolCallAutoApproved", name, arguments: args };
+                }
+                else {
+                    yield { type: "ToolCallPending", name, arguments: args };
+                }
+                const result = await (0, hooks_js_1.runWithHooks)(call, (0, hooks_js_1.hooksWithApproval)((0, tools_js_1.hooksFor)(call), approve), tools_js_1.runTool);
+                if (result.status === "aborted") {
+                    yield { type: "ToolCallDenied", name };
+                    yield { type: "ToolResult", name, output: result.output };
+                    this.history.push({
+                        role: "tool",
+                        tool_call_id: call.id,
+                        content: result.output,
+                    });
+                    continue;
+                }
+                yield {
+                    type: "ToolResult",
+                    name,
+                    output: result.output,
+                    truncated: result.truncated,
+                    originalLength: result.originalLength,
+                };
+                if (name === "plan_operate") {
+                    const snap = (0, plan_js_1.snapshotFromToolOutput)(result.output);
+                    if (snap)
+                        yield { type: "PlanUpdated", ...snap };
+                }
+                this.history.push({
+                    role: "tool",
+                    tool_call_id: call.id,
+                    content: result.output,
+                });
+            }
+        }
+    }
+}
+exports.AgentLoop = AgentLoop;
+//# sourceMappingURL=loop.js.map

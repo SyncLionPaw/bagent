@@ -42,7 +42,7 @@
     "ch30:compile": "npm install --prefix lessons/30-vscode-extension && npm run compile --prefix lessons/30-vscode-extension",
     "ch31:compile": "npm install --prefix lessons/31-vscode-spawn && npm run compile --prefix lessons/31-vscode-spawn",
     "ch32:compile": "npm run compile --prefix lessons/32-vscode-auxiliarybar",
-    "ch33:package": "node scripts/package-lesson32.mjs",
+    "ch33:package": "node scripts/package-vsix.mjs lessons/32-vscode-auxiliarybar",
     "ch102:compile": "npm install --prefix lessons/102-vscode-calculator && npm run compile --prefix lessons/102-vscode-calculator",
     "ch34": "tsx lessons/34-agent-thinking/chat.ts",
     "ch35": "tsx lessons/35-tool-approval/chat.ts",
@@ -68,7 +68,12 @@
     "ch50": "tsx lessons/50-delete-file/chat.ts",
     "ch50:compile": "npm install --prefix lessons/50-delete-file && npm run compile --prefix lessons/50-delete-file",
     "ch51": "tsx lessons/51-run-command/chat.ts",
-    "ch51:compile": "npm install --prefix lessons/51-run-command && npm run compile --prefix lessons/51-run-command"
+    "ch51:compile": "npm install --prefix lessons/51-run-command && npm run compile --prefix lessons/51-run-command",
+    "ch52": "tsx lessons/52-edit-proposal/chat.ts",
+    "ch52:compile": "npm install --prefix lessons/52-edit-proposal && npm run compile --prefix lessons/52-edit-proposal",
+    "ch53": "tsx lessons/53-diff-preview/chat.ts",
+    "ch53:compile": "npm install --prefix lessons/53-diff-preview && npm run compile --prefix lessons/53-diff-preview",
+    "ch53:package": "node scripts/package-vsix.mjs lessons/53-diff-preview"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"

@@ -12,7 +12,24 @@
 2. **IDE 插件** — Webview + worker（[第 30–33 课](/chapters/30-vscode-extension) 已入门）  
 3. **自有 UI** — 订阅本机 Agent 服务（[第 28 课](/chapters/28-agent-network) 的 SSE 范式），界面由**你**的前端来画  
 
-**课程结构**：第 1–10 课 **第一阶段**；第 11–21 课 **第二阶段**；第 22–38 课 **第三阶段**；**第 39–51 课第四部分**（ACP、插件对齐 ch36 内核，以及 grep、读写删、行号、局部改、白名单命令等工具课；连载中）。
+## 终点：编辑与 Diff 审阅
+
+读文件、grep、局部改、删文件——第四部分 [第 39 课](/chapters/39-agent-client-protocol) 起在把**工具链**与 **diff 审阅**补齐。但 Cursor、Copilot 最让人依赖的是另一件事：
+
+**Agent 提案修改 → 红绿 diff 预览 → 你 Accept 才写盘。**
+
+课程按这条线分步走：
+
+| 阶段 | 课 | 做什么 |
+|------|-----|--------|
+| 审批管线 | [第 35 课](/chapters/35-tool-approval) | 读工具先 ✓/✗，内核等 `approve` |
+| 写盘与改文件 | [第 43](/chapters/43-write-file)–[51](/chapters/51-run-command) 课 | `write_file`、`str_replace`、`delete_file` 等；批准后直接落盘 |
+| 编辑提案 | [第 52 课](/chapters/52-edit-proposal) | worker 只出 `oldContent` / `newContent`，**不落盘** |
+| diff 审阅 | [第 53 课](/chapters/53-diff-preview) | `vscode.diff` 预览，Accept 才 `applyEdit` |
+
+[第 38 课](/chapters/38-agent-product) 刻意把写盘留到后面；第 43–51 课先把工具链跑通，**第 52–53 课**接上「先看 diff、再落盘」。
+
+**课程结构**：第 1–10 课 **第一阶段**；第 11–21 课 **第二阶段**；第 22–38 课 **第三阶段**；**第 39–53 课第四部分**（ACP、工具链、diff 审阅；连载中）。
 
 ## 技术栈约定
 
@@ -45,9 +62,9 @@ lessons/NN-xxx/
 | 第一阶段 | 1–10 | 终端与网页 Agent |
 | 第二阶段 | 11–21 | 推理与流式（[第 17 课](/chapters/17-sse-landscape) 扩展阅读） |
 | 第三阶段 | 22–38 | Agent 内核、IDE 插件、产品全景 |
-| 第四部分 | 39–51 | ACP；grep、读写删、行号、局部改、Reminder、对话保存、[白名单命令](/chapters/51-run-command) 等 |
+| 第四部分 | 39–53 | ACP；工具链；[编辑提案](/chapters/52-edit-proposal)、[diff 审阅](/chapters/53-diff-preview) |
 | 扩展阅读 | 101–102 | [VS Code 插件入门](/chapters/101-vscode-extension)、[计算器 demo](/chapters/102-vscode-calculator) |
-| 规划中 | 120 | [编辑与 Diff 预览](/chapters/120-edit-diff)（写盘工具，尚未实现） |
+| 规划中 | 120 | [apply_patch 等进阶](/chapters/120-edit-diff) |
 
 ## 怎么开始
 
@@ -104,8 +121,10 @@ lessons/NN-xxx/
 48. [第 48 课 · read_file 行号](/chapters/48-read-lines)  
 49. [第 49 课 · str_replace 局部修改](/chapters/49-str-replace)  
 50. [第 50 课 · delete_file 删除文件](/chapters/50-delete-file)  
-51. [第 51 课 · run_command 白名单命令](/chapters/51-run-command)
+51. [第 51 课 · run_command 白名单命令](/chapters/51-run-command)  
+52. [第 52 课 · 编辑提案（不落盘）](/chapters/52-edit-proposal)  
+53. [第 53 课 · Diff 预览与 Accept 写盘](/chapters/53-diff-preview)
 
 **扩展阅读**：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape) · [第 101 课 · VS Code 插件入门](/chapters/101-vscode-extension) · [第 102 课 · 计算器插件](/chapters/102-vscode-calculator)
 
-**规划中**：[第 120 课 · 编辑与 Diff 预览](/chapters/120-edit-diff)
+**规划中**：[第 120 课 · apply_patch 等进阶](/chapters/120-edit-diff)

@@ -13,6 +13,7 @@
 
 ## 说明
 
+- [安装插件](./install-plugin) — 下载 Release，配 Key 即用（不用 compile）
 - [Agent 能做什么](./showcase) — 三个真实插件对话截图  
 - 每章代码在 `lessons/`，可跑 `npm run chNN`（或课文里的命令）  
 - 改课文后 `npm run sync-docs` 同步本站  

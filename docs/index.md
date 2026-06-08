@@ -10,6 +10,9 @@ hero:
   tagline: 小 · 能拉开拉链看 · 背着走
   actions:
     - theme: brand
+      text: 安装插件
+      link: /guide/install-plugin
+    - theme: alt
       text: 案例
       link: /guide/showcase
     - theme: alt
@@ -34,13 +37,13 @@ features:
 
 - **背包**：工具一件一件装进去；**小、透明、能随身背**，不像重大 framework 那样得先爬进去、摸很久才敢用。
 
-课程用 JavaScript / TypeScript，从终端对话写到 VS Code 插件，连载至第 51 课。
+课程用 JavaScript / TypeScript，从终端对话写到 VS Code 插件，连载至第 53 课。
 
 | 阶段 | 课次 | 内容 |
 |------|------|------|
 | 第一阶段 | 1–10 | 对话、工具、联网、网页 UI |
 | 第二阶段 | 11–21 | API、推理、SSE 与浏览器流式 |
 | 第三阶段 | 22–38 | Agent Loop、事件、VS Code 插件、审批与钩子 |
-| 第四部分 | 39–51 | ACP 阅读；插件课：grep、读写删、行号、局部改、命令白名单等 |
+| 第四部分 | 39–53 | ACP；工具链；编辑提案与 diff 审阅 |
 
-[案例 →](/guide/showcase) · [第 0 章 前言 →](/chapters/00-preface) · [第 51 课 当前完整插件 →](/chapters/51-run-command)
+[安装插件 →](/guide/install-plugin) · [案例 →](/guide/showcase) · [第 0 章 前言 →](/chapters/00-preface)

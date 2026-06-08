@@ -1,0 +1,102 @@
+{
+  "name": "bagent-lesson53",
+  "displayName": "bagent 第 53 课",
+  "description": "vscode.diff 预览编辑提案，Accept 后写盘",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent53.open",
+        "title": "bagent: 打开 Agent 面板（第 53 课）"
+      },
+      {
+        "command": "bagent53.acceptEdit",
+        "title": "Accept",
+        "icon": "$(check)"
+      },
+      {
+        "command": "bagent53.rejectEdit",
+        "title": "Reject",
+        "icon": "$(close)"
+      }
+    ],
+    "menus": {
+      "diffEditor/title": [
+        {
+          "command": "bagent53.acceptEdit",
+          "when": "bagent53.pendingEdit",
+          "group": "navigation@1"
+        },
+        {
+          "command": "bagent53.rejectEdit",
+          "when": "bagent53.pendingEdit",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "bagent53.acceptEdit",
+          "when": "bagent53.pendingEdit && isInDiffEditor",
+          "group": "navigation@1"
+        },
+        {
+          "command": "bagent53.rejectEdit",
+          "when": "bagent53.pendingEdit && isInDiffEditor",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "bagent53",
+          "title": "bagent",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "bagent53": [
+        {
+          "type": "webview",
+          "id": "bagent53.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent 第 53 课",
+      "properties": {
+        "bagent53.apiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/deepseek-api-key",
+          "description": "DeepSeek API Key 文件路径"
+        },
+        "bagent53.tavilyApiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/tavily-api-key",
+          "description": "Tavily API Key（web_search）。第一行 tvly-...；环境变量 TAVILY_API_KEY 优先。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p . && tsc -p agent/tsconfig.json"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}
