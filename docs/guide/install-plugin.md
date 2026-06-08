@@ -23,9 +23,13 @@
 
 **图形界面**
 
+![扩展面板 → ⋯ → 从 VSIX 安装…](/install.png)
+
 1. 打开 [Releases](https://github.com/SyncLionPaw/bagent/releases/latest)，下载 **`bagent-plugin.vsix`**
 2. 扩展面板 → 右上角 **`⋯`** → **从 VSIX 安装…**（Install from VSIX）
 3. 选中刚下载的文件
+
+装好后左侧 **已安装** 里会出现 **bagent**（小黄人图标）；右侧辅助栏可打开 Agent 对话。
 
 **命令行**
 

@@ -22,6 +22,8 @@ npm run build
 
 站点图标在 `docs/public/`（`favicon.ico`、`logo-icon.png` 等），源图是仓库根目录 `image.png`。改图后跑 `npm run sync-brand` 再 build。
 
+安装指南截图源文件是根目录 `install.png`，`sync-docs` 会复制到 `docs/public/install.png`。
+
 新增一章：
 
 1. 建 `lessons/NN-xxx/doc.md` + 示例代码  

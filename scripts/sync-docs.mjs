@@ -26,10 +26,17 @@ for (const name of fs.readdirSync(lessonsDir)) {
   fs.writeFileSync(path.join(chaptersDir, `${name}.md`), frontmatter + body);
 
   const publicDir = path.join(root, "docs", "public", "lessons", name);
+  const copied = new Set();
   for (const file of fs.readdirSync(dir)) {
     if (!/\.(png|jpe?g|gif|webp|svg)$/i.test(file)) continue;
     fs.mkdirSync(publicDir, { recursive: true });
     fs.copyFileSync(path.join(dir, file), path.join(publicDir, file));
+    copied.add(file);
+  }
+  if (fs.existsSync(publicDir)) {
+    for (const file of fs.readdirSync(publicDir)) {
+      if (!copied.has(file)) fs.unlinkSync(path.join(publicDir, file));
+    }
   }
 }
 
@@ -37,6 +44,12 @@ for (const file of fs.readdirSync(chaptersDir)) {
   if (!file.endsWith(".md") || synced.has(file)) continue;
   fs.unlinkSync(path.join(chaptersDir, file));
   console.log(`removed stale chapter: ${file}`);
+}
+
+// 安装指南截图（源文件在仓库根目录）
+const installSrc = path.join(root, "install.png");
+if (fs.existsSync(installSrc)) {
+  fs.copyFileSync(installSrc, path.join(root, "docs", "public", "install.png"));
 }
 
 // 站点展示页截图（源文件在 lessons/51-run-command/）
