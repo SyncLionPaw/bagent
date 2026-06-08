@@ -2,7 +2,7 @@
   "name": "bagent",
   "displayName": "bagent",
   "description": "侧边栏 Code Agent：读文件、改代码、跑命令；改文件前 diff 预览，Accept 后写盘",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "icon": "media/icon.png",
   "publisher": "bagent",

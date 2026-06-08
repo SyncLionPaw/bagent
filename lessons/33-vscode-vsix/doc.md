@@ -49,7 +49,7 @@ npm run ch33:package
 3. 跑 `vsce package`
 4. **还原** `package.json`（课程仓库仍保持 `private: true`）
 
-其它插件课同理，例如当前完整版：`npm run ch53:package` → `lessons/53-diff-preview/bagent-0.0.1.vsix`。
+其它插件课同理，例如当前完整版：`npm run ch53:package` → `lessons/53-diff-preview/bagent-0.0.2.vsix`。
 
 成功后当前目录出现：
 

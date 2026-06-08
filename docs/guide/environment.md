@@ -50,8 +50,8 @@ npm run ch40:compile   # 第 40 课：ch36 内核 + 审批 Webview
 npm run ch102:compile  # 第 102 课计算器 demo
 
 # 从 VSIX 安装（无需 compile / F5）
-# 扩展 ⋯ → 从 VSIX 安装… → bagent-0.0.1.vsix（或 Release 里的 bagent-plugin.vsix）
-# 或：cursor --install-extension lessons/53-diff-preview/bagent-0.0.1.vsix
+# 扩展 ⋯ → 从 VSIX 安装… → bagent-0.0.2.vsix（或 Release 里的 bagent-plugin.vsix）
+# 或：cursor --install-extension lessons/53-diff-preview/bagent-0.0.2.vsix
 
 # 文档站本地预览
 npm run dev            # http://localhost:5173/bagent/

@@ -145,7 +145,7 @@ npm run ch53:package
 会 `npm install` → `compile` → `vsce package`，产出：
 
 ```text
-lessons/53-diff-preview/bagent-0.0.1.vsix
+lessons/53-diff-preview/bagent-0.0.2.vsix
 ```
 
 把这个 `.vsix` 发给学习者即可。面向用户的固定下载入口：[GitHub Releases · bagent-plugin.vsix](https://github.com/SyncLionPaw/bagent/releases/latest)（见 [安装插件](/guide/install-plugin)）。
@@ -156,7 +156,7 @@ lessons/53-diff-preview/bagent-0.0.1.vsix
 2. 或终端：
 
 ```bash
-cursor --install-extension /path/to/bagent-0.0.1.vsix
+cursor --install-extension /path/to/bagent-0.0.2.vsix
 # code --install-extension …   # 纯 VS Code
 ```
 
