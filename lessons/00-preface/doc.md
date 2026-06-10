@@ -123,7 +123,8 @@ lessons/NN-xxx/
 50. [第 50 课 · delete_file 删除文件](/chapters/50-delete-file)  
 51. [第 51 课 · run_command 白名单命令](/chapters/51-run-command)  
 52. [第 52 课 · 编辑提案（不落盘）](/chapters/52-edit-proposal)  
-53. [第 53 课 · Diff 预览与 Accept 写盘](/chapters/53-diff-preview)
+53. [第 53 课 · Diff 预览与 Accept 写盘](/chapters/53-diff-preview)  
+54. [第 54 课 · 写盘后诊断](/chapters/54-diagnostics)
 
 **扩展阅读**：[第 17 课 · SSE 行业背景](/chapters/17-sse-landscape) · [第 101 课 · VS Code 插件入门](/chapters/101-vscode-extension) · [第 102 课 · 计算器插件](/chapters/102-vscode-calculator)
 

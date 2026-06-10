@@ -1,0 +1,113 @@
+{
+  "name": "bagent",
+  "displayName": "bagent",
+  "description": "侧边栏 Code Agent：diff 预览 + Accept 写盘 + 写盘后自动诊断（TS/Python/JS）",
+  "version": "0.0.1",
+  "private": true,
+  "icon": "media/icon.png",
+  "publisher": "bagent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SyncLionPaw/bagent.git"
+  },
+  "homepage": "https://synclionpaw.github.io/bagent/guide/install-plugin",
+  "bugs": {
+    "url": "https://github.com/SyncLionPaw/bagent/issues"
+  },
+  "keywords": ["agent", "ai", "code", "diff", "diagnostics", "deepseek"],
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": ["Programming Languages", "Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bagent54.open",
+        "title": "bagent: 打开 Agent 面板"
+      },
+      {
+        "command": "bagent54.acceptEdit",
+        "title": "Accept",
+        "icon": "$(check)"
+      },
+      {
+        "command": "bagent54.rejectEdit",
+        "title": "Reject",
+        "icon": "$(close)"
+      }
+    ],
+    "menus": {
+      "diffEditor/title": [
+        {
+          "command": "bagent54.acceptEdit",
+          "when": "bagent54.pendingEdit",
+          "group": "navigation@1"
+        },
+        {
+          "command": "bagent54.rejectEdit",
+          "when": "bagent54.pendingEdit",
+          "group": "navigation@2"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "bagent54.acceptEdit",
+          "when": "bagent54.pendingEdit && isInDiffEditor",
+          "group": "navigation@1"
+        },
+        {
+          "command": "bagent54.rejectEdit",
+          "when": "bagent54.pendingEdit && isInDiffEditor",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "bagent54",
+          "title": "bagent",
+          "icon": "media/sidebar-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "bagent54": [
+        {
+          "type": "webview",
+          "id": "bagent54.chat",
+          "name": "Agent"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "bagent",
+      "properties": {
+        "bagent54.apiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/deepseek-api-key",
+          "description": "DeepSeek API Key 文件路径"
+        },
+        "bagent54.tavilyApiKeyPath": {
+          "type": "string",
+          "default": "~/.bagent/tavily-api-key",
+          "description": "Tavily API Key（web_search）。第一行 tvly-...；环境变量 TAVILY_API_KEY 优先。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p . && tsc -p agent/tsconfig.json"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}

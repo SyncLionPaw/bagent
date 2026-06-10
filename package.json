@@ -73,7 +73,10 @@
     "ch52:compile": "npm install --prefix lessons/52-edit-proposal && npm run compile --prefix lessons/52-edit-proposal",
     "ch53": "tsx lessons/53-diff-preview/chat.ts",
     "ch53:compile": "npm install --prefix lessons/53-diff-preview && npm run compile --prefix lessons/53-diff-preview",
-    "ch53:package": "node scripts/package-vsix.mjs lessons/53-diff-preview"
+    "ch53:package": "node scripts/package-vsix.mjs lessons/53-diff-preview",
+    "ch54": "tsx lessons/54-diagnostics/chat.ts",
+    "ch54:compile": "npm install --prefix lessons/54-diagnostics && npm run compile --prefix lessons/54-diagnostics",
+    "ch54:package": "node scripts/package-vsix.mjs lessons/54-diagnostics"
   },
   "dependencies": {
     "eventsource-parser": "^3.0.6"

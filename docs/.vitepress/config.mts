@@ -119,6 +119,7 @@ export default defineConfig({
           { text: "第 51 课 — run_command 白名单命令", link: "/chapters/51-run-command" },
           { text: "第 52 课 — 编辑提案（不落盘）", link: "/chapters/52-edit-proposal" },
           { text: "第 53 课 — Diff 预览写盘", link: "/chapters/53-diff-preview" },
+          { text: "第 54 课 — 写盘后诊断", link: "/chapters/54-diagnostics" },
         ],
       },
       {

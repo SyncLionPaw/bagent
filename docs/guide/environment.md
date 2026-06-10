@@ -45,13 +45,13 @@ npm run ch30:compile
 npm run ch31:compile
 npm run ch32:compile   # 需先 ch31:compile
 npm run ch33:package   # 第 32 课 → .vsix
-npm run ch53:package   # 当前完整插件（diff 写盘）→ .vsix
+npm run ch54:package   # 当前完整插件（diff 写盘 + 诊断）→ .vsix
 npm run ch40:compile   # 第 40 课：ch36 内核 + 审批 Webview
 npm run ch102:compile  # 第 102 课计算器 demo
 
 # 从 VSIX 安装（无需 compile / F5）
-# 扩展 ⋯ → 从 VSIX 安装… → bagent-0.0.2.vsix（或 Release 里的 bagent-plugin.vsix）
-# 或：cursor --install-extension lessons/53-diff-preview/bagent-0.0.2.vsix
+# 扩展 ⋯ → 从 VSIX 安装… → bagent-0.0.1.vsix（或 Release 里的 bagent-plugin.vsix）
+# 或：cursor --install-extension lessons/54-diagnostics/bagent-0.0.1.vsix
 
 # 文档站本地预览
 npm run dev            # http://localhost:5173/bagent/

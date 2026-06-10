@@ -81,23 +81,23 @@ npx vitepress preview docs
 
 维护者发版步骤：
 
-1. 改 `lessons/53-diff-preview/package.json` 里的 **`version`**
+1. 改 `lessons/54-diagnostics/package.json` 里的 **`version`**
 2. 提交并 push 到 `main`
-3. 打 tag 并推送（tag 与 version 对齐，例如 `v0.0.2`）：
+3. 打 tag 并推送（tag 与 version 对齐，例如 `v0.0.3`）：
 
 ```bash
-git tag v0.0.2
-git push origin v0.0.2
+git tag v0.0.3
+git push origin v0.0.3
 ```
 
-4. Actions 里 **Release** workflow 会自动 `ch53:package`，上传 `bagent-plugin.vsix` 与带版本号的 `.vsix`
+4. Actions 里 **Release** workflow 会自动 `ch54:package`，上传 `bagent-plugin.vsix` 与带版本号的 `.vsix`
 
 也可在 Actions 页 **Run workflow** 手动触发（需已有 tag 或会用到当前 ref；推荐仍用 tag 发版）。
 
 本地试打：
 
 ```bash
-npm run ch53:package
+npm run ch54:package
 ```
 
 ### 常见问题

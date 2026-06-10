@@ -37,7 +37,7 @@ features:
 
 - **背包**：工具一件一件装进去；**小、透明、能随身背**，不像重大 framework 那样得先爬进去、摸很久才敢用。
 
-课程用 JavaScript / TypeScript，从终端对话写到 VS Code 插件，连载至第 53 课。
+课程用 JavaScript / TypeScript，从终端对话写到 VS Code 插件，连载至第 54 课。
 
 | 阶段 | 课次 | 内容 |
 |------|------|------|

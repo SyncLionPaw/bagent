@@ -1,4 +1,4 @@
-# 打 tag v* → 编译第 53 课插件 → 上传 .vsix 到 GitHub Release
+# 打 tag v* → 编译第 54 课插件 → 上传 .vsix 到 GitHub Release
 # 用户从 Releases 下载 bagent-plugin.vsix，无需 clone / compile
 
 name: Release
@@ -25,13 +25,13 @@ jobs:
           node-version: "22"
 
       - name: Package extension
-        run: npm run ch53:package
+        run: npm run ch54:package
 
       - name: Prepare release asset
         id: asset
         run: |
-          VSIX=$(ls lessons/53-diff-preview/*.vsix | head -1)
-          VERSION=$(node -p "require('./lessons/53-diff-preview/package.json').version")
+          VSIX=$(ls lessons/54-diagnostics/*.vsix | head -1)
+          VERSION=$(node -p "require('./lessons/54-diagnostics/package.json').version")
           cp "$VSIX" bagent-plugin.vsix
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "vsix=$VSIX" >> "$GITHUB_OUTPUT"

@@ -90,4 +90,4 @@ export TAVILY_API_KEY="tvly-..."
 | 侧栏没反应 | 命令面板运行 **bagent: 打开 Agent 面板** |
 | 提示找不到 Key | 检查 `~/.bagent/deepseek-api-key` 或 `DEEPSEEK_API_KEY` |
 | 没有联网搜索 | 配置 Tavily Key；没有则本地工具仍可用 |
-| 想自己改插件源码 | 克隆仓库，跟 [第 53 课](/chapters/53-diff-preview) 用 F5 开发 |
+| 想自己改插件源码 | 克隆仓库，跟 [第 54 课](/chapters/54-diagnostics) 用 F5 开发 |
